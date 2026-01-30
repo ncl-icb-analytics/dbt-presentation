@@ -21,7 +21,7 @@ export default function Slide02StoredProcs() {
 
   return (
     <div className="slide" style={{ padding: "2rem 3rem", display: "flex", flexDirection: "column" }}>
-      <h2 style={{ marginBottom: "0.5rem" }}>The data pipeline</h2>
+      <h2 style={{ marginBottom: "0.5rem" }}>The classic data pipeline</h2>
       <p style={{ color: "#64748b", fontSize: "1rem", marginBottom: "1rem" }}>
         From source data to dashboard — the traditional approach with stored procedures.
       </p>
