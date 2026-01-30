@@ -5,6 +5,18 @@ import CodeSlideLayout, { type TreeFile } from "../CodeSlideLayout";
 
 const files: TreeFile[] = [
   {
+    name: "dbt_project.yml",
+    path: "dbt_project.yml",
+    type: "file",
+    lang: "yaml",
+  },
+  {
+    name: "profiles.yml",
+    path: "profiles.yml",
+    type: "file",
+    lang: "yaml",
+  },
+  {
     name: "models",
     path: "models",
     type: "folder",
@@ -65,6 +77,7 @@ export default function Slide14StagingModels() {
         code={stagingCode}
         lang="sql"
         highlightLines={[1, 9]}
+        projectName="dbt-ncl-analytics"
       />
       <motion.div
         initial={{ opacity: 0, y: 10 }}

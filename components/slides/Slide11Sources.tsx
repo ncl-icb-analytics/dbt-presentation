@@ -7,6 +7,18 @@ import { useSlideContext } from "../SlideNavigation";
 
 const filesStep0: TreeFile[] = [
   {
+    name: "dbt_project.yml",
+    path: "dbt_project.yml",
+    type: "file",
+    lang: "yaml",
+  },
+  {
+    name: "profiles.yml",
+    path: "profiles.yml",
+    type: "file",
+    lang: "yaml",
+  },
+  {
     name: "models",
     path: "models",
     type: "folder",
@@ -35,6 +47,18 @@ const filesStep0: TreeFile[] = [
 ];
 
 const filesStep1: TreeFile[] = [
+  {
+    name: "dbt_project.yml",
+    path: "dbt_project.yml",
+    type: "file",
+    lang: "yaml",
+  },
+  {
+    name: "profiles.yml",
+    path: "profiles.yml",
+    type: "file",
+    lang: "yaml",
+  },
   {
     name: "models",
     path: "models",
@@ -97,6 +121,7 @@ export default function Slide13Sources() {
         code={isStep1 ? modelCode : sourcesCode}
         lang={isStep1 ? "sql" : "yaml"}
         highlightLines={isStep1 ? [8] : [3, 4, 5, 6, 7, 8]}
+        projectName="dbt-ncl-analytics"
       />
       <ClickReveal step={1}>
         <motion.div

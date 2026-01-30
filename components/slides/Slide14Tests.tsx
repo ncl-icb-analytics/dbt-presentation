@@ -6,6 +6,18 @@ import { useSlideContext } from "../SlideNavigation";
 
 const files: TreeFile[] = [
   {
+    name: "dbt_project.yml",
+    path: "dbt_project.yml",
+    type: "file",
+    lang: "yaml",
+  },
+  {
+    name: "profiles.yml",
+    path: "profiles.yml",
+    type: "file",
+    lang: "yaml",
+  },
+  {
     name: "models",
     path: "models",
     type: "folder",
@@ -67,6 +79,7 @@ export default function Slide16Tests() {
         code={isStep1 ? codeStep1 : codeStep0}
         lang="yaml"
         highlightLines={isStep1 ? [4, 5, 6, 7, 8, 9, 10, 11] : []}
+        projectName="dbt-ncl-analytics"
       />
       <ClickReveal step={1}>
         <p style={{ marginTop: "1rem", fontSize: "1rem" }}>

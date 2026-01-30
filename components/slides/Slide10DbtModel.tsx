@@ -21,6 +21,12 @@ const filesStep1: TreeFile[] = [
     lang: "yaml",
   },
   {
+    name: "profiles.yml",
+    path: "profiles.yml",
+    type: "file",
+    lang: "yaml",
+  },
+  {
     name: "models",
     path: "models",
     type: "folder",

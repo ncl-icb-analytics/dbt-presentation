@@ -224,6 +224,7 @@ export default function CodeSlideLayout({
         <div className="code-block-inner" ref={codeRef}>
           {highlighter ? (
             <ShikiMagicMove
+              key={lang}
               lang={lang}
               theme="github-dark"
               highlighter={highlighter}
