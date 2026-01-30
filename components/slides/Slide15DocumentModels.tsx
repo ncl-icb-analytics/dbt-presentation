@@ -1,0 +1,85 @@
+"use client";
+
+import { motion } from "framer-motion";
+import CodeSlideLayout, { type TreeFile } from "../CodeSlideLayout";
+
+const files: TreeFile[] = [
+  {
+    name: "models",
+    path: "models",
+    type: "folder",
+    children: [
+      {
+        name: "staging",
+        path: "models/staging",
+        type: "folder",
+        children: [
+          {
+            name: "stg_olids_observation.sql",
+            path: "models/staging/stg_olids_observation.sql",
+            type: "file",
+            lang: "sql",
+          },
+        ],
+      },
+      {
+        name: "_models.yml",
+        path: "models/_models.yml",
+        type: "file",
+        lang: "yaml",
+      },
+      {
+        name: "int_blood_pressure_latest.sql",
+        path: "models/int_blood_pressure_latest.sql",
+        type: "file",
+        lang: "sql",
+      },
+    ],
+  },
+];
+
+const yamlCode = `version: 2
+
+models:
+  - name: int_blood_pressure_latest
+    description: >
+      Latest blood pressure reading per person.
+      Uses NICE NG136 thresholds (140/90 mmHg).
+    columns:
+      - name: person_id
+        description: Unique patient identifier
+        tests: [unique, not_null]
+      - name: systolic_value
+        description: Systolic BP in mmHg
+      - name: is_hypertensive
+        description: TRUE if BP >= 140/90`;
+
+export default function Slide17DocumentModels() {
+  return (
+    <div className="slide" style={{ padding: "3rem 4rem" }}>
+      <h2 style={{ marginBottom: "1rem" }}>Step 6: Document your models</h2>
+      <CodeSlideLayout
+        files={files}
+        activeFile="models/_models.yml"
+        code={yamlCode}
+        lang="yaml"
+        highlightLines={[5, 6, 7, 10]}
+      />
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3 }}
+        style={{
+          marginTop: "1rem",
+          padding: "0.75rem 1rem",
+          background: "rgba(0,0,0,0.2)",
+          borderRadius: "0.5rem",
+          fontSize: "0.95rem",
+          color: "#94a3b8",
+        }}
+      >
+        Descriptions live next to tests. Run <code style={{ color: "#f97316" }}>dbt docs generate</code> to build a searchable site.
+      </motion.div>
+    </div>
+  );
+}

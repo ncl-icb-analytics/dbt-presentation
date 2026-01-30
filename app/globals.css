@@ -1,0 +1,456 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+  --accent: #3b82f6;
+  --accent-dim: rgba(59, 130, 246, 0.15);
+  --muted: #94a3b8;
+  --border: #334155;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+/* Slide base */
+.slide {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 6rem;
+  position: relative;
+}
+
+.slide-center {
+  align-items: center;
+  text-align: center;
+}
+
+.slide h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.slide h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+  color: var(--foreground);
+}
+
+.slide p {
+  font-size: 1.5rem;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.slide-center p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slide ul {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  list-style: none;
+}
+
+.slide li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.slide li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.slide li strong {
+  color: var(--foreground);
+}
+
+.slide code:not([class*="shiki"]) {
+  background: var(--accent-dim);
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.25rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.9em;
+  color: #93c5fd;
+}
+
+/* Code wrapper */
+.code-wrapper {
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: #0d1117;
+}
+
+.code-filename {
+  padding: 0.75rem 1rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.85rem;
+  color: var(--muted);
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid var(--border);
+}
+
+.code-block-inner,
+.code-block-loading {
+  padding: 1rem 1.5rem;
+  overflow-x: auto;
+}
+
+.code-block-inner pre,
+.code-block-loading pre {
+  margin: 0;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.code-block-inner code,
+.code-block-inner span,
+.code-block-inner .line {
+  background: transparent !important;
+}
+
+/* Code blocks */
+.shiki,
+pre.shiki {
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  border: 1px solid var(--border);
+  background: #0d1117 !important;
+}
+
+/* Shiki magic move overrides */
+.shiki-magic-move {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.shiki-magic-move pre {
+  background: transparent !important;
+  margin: 0;
+  padding: 0;
+}
+
+/* Progress bar */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), #8b5cf6);
+  transition: width 0.3s ease;
+  z-index: 100;
+}
+
+/* Navigation hint */
+.nav-hint {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  opacity: 0.4;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Slide counter */
+.slide-counter {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  opacity: 0.6;
+  font-family: var(--font-mono), monospace;
+}
+
+/* Click reveal animation */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.reveal-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Code flow diagram */
+.code-flow {
+  font-family: var(--font-mono), monospace;
+  font-size: 1.1rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+.code-flow span {
+  color: var(--foreground);
+}
+
+/* Magic move transitions */
+.shiki-magic-move-container {
+  transition: height 0.5s ease;
+}
+
+.shiki-magic-move-line {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* File Explorer layout */
+.file-explorer {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1.5rem;
+  height: 100%;
+  min-height: 400px;
+}
+
+.file-tree-panel {
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.file-tree-header {
+  padding: 0.75rem 1rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.8rem;
+  color: var(--muted);
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid var(--border);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.file-tree {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  padding: 0.5rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.file-tree-item {
+  cursor: pointer;
+  padding: 0.35rem 0.5rem;
+  border-radius: 0.25rem;
+  transition: background 0.15s ease, color 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.file-tree-item:hover {
+  background: var(--accent-dim);
+}
+
+.file-tree-item.active {
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+.file-tree-item.folder {
+  color: var(--muted);
+}
+
+.file-tree-item.file {
+  color: var(--foreground);
+}
+
+.file-tree-icon {
+  flex-shrink: 0;
+  width: 16px;
+  opacity: 0.7;
+}
+
+.file-tree-indent {
+  display: inline-block;
+}
+
+/* Code viewer panel */
+.code-viewer-panel {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.code-viewer-panel .code-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.code-viewer-panel .code-block-inner {
+  flex: 1;
+  overflow: auto;
+}
+
+/* Empty state */
+.code-viewer-empty {
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Code Slide Layout - file tree + code viewer */
+.code-slide-layout {
+  display: grid !important;
+  grid-template-columns: 200px 1fr !important;
+  gap: 1rem;
+  width: 100%;
+  min-height: 400px;
+  max-height: 65vh;
+}
+
+.code-slide-tree {
+  grid-column: 1;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.code-slide-tree-header {
+  padding: 0.5rem 1rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  color: var(--muted);
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid var(--border);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.code-slide-tree-content {
+  padding: 0.5rem 0;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.8rem;
+  line-height: 1.3;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.tree-item {
+  padding: 0.35rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+  color: var(--muted);
+}
+
+.tree-item.tree-file {
+  color: var(--foreground);
+}
+
+.tree-item.active {
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+.code-slide-viewer {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: #0d1117;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.code-slide-viewer .code-filename {
+  padding: 0.5rem 1rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  color: var(--muted);
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid var(--border);
+}
+
+.code-slide-viewer .code-block-inner {
+  padding: 1rem 1.25rem;
+  overflow: auto;
+  flex: 1;
+  position: relative;
+}
+
+/* Shiki magic move line numbers */
+.shiki-magic-move-line-number {
+  display: inline-block;
+  width: 2.5rem;
+  min-width: 2.5rem;
+  text-align: right;
+  padding-right: 1rem;
+  color: #6e7681;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+/* Ensure lines display properly during animation */
+.shiki-magic-move-line {
+  display: flex;
+  white-space: pre;
+}
+
+/* Highlighted line styling */
+.shiki-magic-move-line.highlighted {
+  background: rgba(59, 130, 246, 0.15);
+  border-left: 3px solid #3b82f6;
+  margin-left: -3px;
+  padding-left: 3px;
+}
+
+.shiki-magic-move-line.highlighted .shiki-magic-move-line-number {
+  color: #93c5fd;
+}

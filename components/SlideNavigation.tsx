@@ -1,0 +1,137 @@
+"use client";
+
+import { useCallback, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
+import { getNextSlideId, getPrevSlideId, totalSlides } from "@/lib/slides";
+
+interface SlideNavigationProps {
+  slideId: number;
+  totalSteps: number;
+  children: React.ReactNode;
+}
+
+// Context for child components to access current step
+import { createContext, useContext } from "react";
+
+interface SlideContextValue {
+  currentStep: number;
+  totalSteps: number;
+  isLastStep: boolean;
+}
+
+export const SlideContext = createContext<SlideContextValue>({
+  currentStep: 0,
+  totalSteps: 0,
+  isLastStep: false,
+});
+
+export function useSlideContext() {
+  return useContext(SlideContext);
+}
+
+export default function SlideNavigation({
+  slideId,
+  totalSteps,
+  children,
+}: SlideNavigationProps) {
+  const router = useRouter();
+  const [currentStep, setCurrentStep] = useState(0);
+
+  const goNext = useCallback(() => {
+    if (currentStep < totalSteps) {
+      setCurrentStep((s) => s + 1);
+    } else {
+      const nextId = getNextSlideId(slideId);
+      if (nextId) {
+        router.push(`/slides/${nextId}`);
+      }
+    }
+  }, [currentStep, totalSteps, slideId, router]);
+
+  const goPrev = useCallback(() => {
+    if (currentStep > 0) {
+      setCurrentStep((s) => s - 1);
+    } else {
+      const prevId = getPrevSlideId(slideId);
+      if (prevId) {
+        router.push(`/slides/${prevId}`);
+      }
+    }
+  }, [currentStep, slideId, router]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight" || e.key === " " || e.key === "Enter") {
+        e.preventDefault();
+        goNext();
+      } else if (e.key === "ArrowLeft" || e.key === "Backspace") {
+        e.preventDefault();
+        goPrev();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [goNext, goPrev]);
+
+  // Reset step when slide changes
+  useEffect(() => {
+    setCurrentStep(0);
+  }, [slideId]);
+
+  const isLastStep = currentStep >= totalSteps;
+  const hasNextSlide = getNextSlideId(slideId) !== null;
+
+  return (
+    <SlideContext.Provider value={{ currentStep, totalSteps, isLastStep }}>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={slideId}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -20 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+        >
+          {children}
+        </motion.div>
+      </AnimatePresence>
+
+      <div className="slide-counter">
+        {slideId} / {totalSlides}
+      </div>
+
+      {/* Indicator when on last step and next arrow goes to next slide */}
+      {isLastStep && hasNextSlide && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="next-slide-hint"
+          style={{
+            position: "fixed",
+            right: "2rem",
+            top: "50%",
+            transform: "translateY(-50%)",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            color: "#64748b",
+            fontSize: "0.85rem",
+          }}
+        >
+          <motion.span
+            animate={{ x: [0, 5, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+            style={{ fontSize: "1.25rem" }}
+          >
+            →
+          </motion.span>
+        </motion.div>
+      )}
+
+      <div className="nav-hint">
+        <kbd>←</kbd> <kbd>→</kbd> to navigate
+      </div>
+    </SlideContext.Provider>
+  );
+}
