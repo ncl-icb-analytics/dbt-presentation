@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { getNextSlideId, getPrevSlideId, totalSlides } from "@/lib/slides";
@@ -80,6 +80,44 @@ export default function SlideNavigation({
     setCurrentStep(0);
   }, [slideId]);
 
+  // Touch swipe support for mobile
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+
+  useEffect(() => {
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartX.current = e.touches[0].clientX;
+      touchStartY.current = e.touches[0].clientY;
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      if (touchStartX.current === null || touchStartY.current === null) return;
+
+      const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+      const deltaY = e.changedTouches[0].clientY - touchStartY.current;
+      const minSwipeDistance = 50;
+
+      // Only trigger if horizontal swipe is greater than vertical (not scrolling)
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
+        if (deltaX < 0) {
+          goNext();
+        } else {
+          goPrev();
+        }
+      }
+
+      touchStartX.current = null;
+      touchStartY.current = null;
+    };
+
+    window.addEventListener("touchstart", handleTouchStart);
+    window.addEventListener("touchend", handleTouchEnd);
+    return () => {
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, [goNext, goPrev]);
+
   const isLastStep = currentStep >= totalSteps;
   const hasNextSlide = getNextSlideId(slideId) !== null;
 
@@ -101,11 +139,12 @@ export default function SlideNavigation({
         {slideId} / {totalSlides}
       </div>
 
-      {/* Indicator when on last step and next arrow goes to next slide */}
+      {/* Clickable next button */}
       {isLastStep && hasNextSlide && (
-        <motion.div
+        <motion.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
+          onClick={goNext}
           className="next-slide-hint"
           style={{
             position: "fixed",
@@ -117,16 +156,20 @@ export default function SlideNavigation({
             gap: "0.5rem",
             color: "#64748b",
             fontSize: "0.85rem",
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            padding: "1rem",
           }}
         >
           <motion.span
             animate={{ x: [0, 5, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            style={{ fontSize: "1.25rem" }}
+            style={{ fontSize: "1.5rem" }}
           >
             →
           </motion.span>
-        </motion.div>
+        </motion.button>
       )}
 
       <div className="nav-hint">

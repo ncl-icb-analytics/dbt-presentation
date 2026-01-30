@@ -1,17 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import DbtDAGExecution from "../DbtDAGExecution";
+import DbtDAGExecution, { DbtDAGExecutionHandle } from "../DbtDAGExecution";
 
 type Command = "run" | "build" | "test";
 
+const commandDescriptions: Record<Command, string> = {
+  run: "Executes SQL to build models in your warehouse",
+  build: "Runs models + tests together, stops downstream on test failure",
+  test: "Runs data quality tests without building models",
+};
+
 export default function Slide18DbtExecution() {
   const [command, setCommand] = useState<Command>("run");
+  const [hasRun, setHasRun] = useState(false);
+  const dagRef = useRef<DbtDAGExecutionHandle>(null);
+
+  // Reset hasRun when command changes
+  useEffect(() => {
+    setHasRun(false);
+  }, [command]);
+
+  const handleExecute = () => {
+    dagRef.current?.execute();
+    setHasRun(true);
+  };
 
   return (
     <div className="slide" style={{ padding: "1.5rem 2.5rem", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
         <h2 style={{ margin: 0 }}>How dbt runs</h2>
         <div style={{ display: "flex", gap: "0.5rem" }}>
           {(["run", "build", "test"] as Command[]).map((cmd) => (
@@ -33,10 +51,48 @@ export default function Slide18DbtExecution() {
             </button>
           ))}
         </div>
+        <button
+          onClick={handleExecute}
+          style={{
+            background: hasRun ? "#334155" : "#f97316",
+            border: hasRun ? "1px solid #475569" : "1px solid #f97316",
+            borderRadius: "0.375rem",
+            padding: "0.4rem 0.75rem",
+            color: "white",
+            fontSize: "0.85rem",
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.35rem",
+          }}
+        >
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+          {hasRun ? "Replay" : "Execute"}
+        </button>
+        <motion.div
+          key={command}
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          style={{
+            padding: "0.4rem 0.6rem",
+            background: "rgba(59, 130, 246, 0.1)",
+            border: "1px solid rgba(59, 130, 246, 0.3)",
+            borderRadius: "0.375rem",
+            fontSize: "0.8rem",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.4rem",
+          }}
+        >
+          <span style={{ color: "#3b82f6", fontWeight: 600 }}>ℹ</span>
+          <span style={{ color: "#94a3b8" }}>{commandDescriptions[command]}</span>
+        </motion.div>
       </div>
 
       <div style={{ flex: 1, minHeight: 0 }}>
-        <DbtDAGExecution command={command} />
+        <DbtDAGExecution ref={dagRef} command={command} />
       </div>
 
       <motion.div

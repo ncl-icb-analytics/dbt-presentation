@@ -1,7 +1,11 @@
 "use client";
 
-import { useEffect, useState, useMemo, useCallback } from "react";
+import { useEffect, useState, useMemo, useCallback, forwardRef, useImperativeHandle } from "react";
 import { motion } from "framer-motion";
+
+export interface DbtDAGExecutionHandle {
+  execute: () => void;
+}
 
 interface Node {
   id: string;
@@ -74,7 +78,7 @@ function generateNodes(): Node[] {
 
 const nodes = generateNodes();
 
-export default function DbtDAGExecution({ command = "run", onComplete }: DbtDAGExecutionProps) {
+const DbtDAGExecution = forwardRef<DbtDAGExecutionHandle, DbtDAGExecutionProps>(function DbtDAGExecution({ command = "run", onComplete }, ref) {
   const [completedNodes, setCompletedNodes] = useState<Set<string>>(new Set());
   const [runningNodes, setRunningNodes] = useState<Set<string>>(new Set());
   const [failedNodes, setFailedNodes] = useState<Set<string>>(new Set());
@@ -120,6 +124,11 @@ export default function DbtDAGExecution({ command = "run", onComplete }: DbtDAGE
     setHasRun(true);
     setAnimKey(k => k + 1);
   }, []);
+
+  // Expose execute function via ref
+  useImperativeHandle(ref, () => ({
+    execute: executeCommand,
+  }), [executeCommand]);
 
   // Reset when command changes
   useEffect(() => {
@@ -418,26 +427,6 @@ export default function DbtDAGExecution({ command = "run", onComplete }: DbtDAGE
             })}
           </svg>
         </div>
-
-        {/* Execute/Replay button */}
-        <div style={{ display: "flex", justifyContent: "flex-end", paddingTop: "0.25rem" }}>
-          <button
-            onClick={executeCommand}
-            disabled={isRunning}
-            style={{
-              background: hasRun ? "#334155" : "#f97316",
-              border: hasRun ? "1px solid #475569" : "1px solid #f97316",
-              borderRadius: "0.375rem",
-              padding: "0.35rem 0.6rem",
-              color: "white",
-              fontSize: "0.75rem",
-              cursor: isRunning ? "not-allowed" : "pointer",
-              opacity: isRunning ? 0.5 : 1,
-            }}
-          >
-            {hasRun ? "Replay" : "Execute"}
-          </button>
-        </div>
       </div>
 
       {/* Terminal Log */}
@@ -483,4 +472,6 @@ export default function DbtDAGExecution({ command = "run", onComplete }: DbtDAGE
       </div>
     </div>
   );
-}
+});
+
+export default DbtDAGExecution;
