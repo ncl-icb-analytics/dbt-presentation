@@ -113,8 +113,13 @@ export default function Slide13Sources() {
   const isStep1 = currentStep >= 1;
 
   return (
-    <div className="slide" style={{ padding: "3rem 4rem" }}>
-      <h2 style={{ marginBottom: "1rem" }}>Step 2: Define your sources</h2>
+    <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
+      <h2 style={{ marginBottom: "0.25rem" }}>Step 2: Define your sources</h2>
+      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+        Document where raw data lives. If the source moves, update one place.
+      </p>
+
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "flex-start", paddingTop: "1.5rem" }}>
       <CodeSlideLayout
         files={isStep1 ? filesStep1 : filesStep0}
         activeFile={isStep1 ? "models/int_blood_pressure_latest.sql" : "models/sources/_sources.yml"}
@@ -136,11 +141,12 @@ export default function Slide13Sources() {
           }}
         >
           <p style={{ fontSize: "0.95rem", margin: 0 }}>
-            <code style={{ color: "#3b82f6" }}>source()</code> documents where raw data lives.
-            If the source table moves, update one place.
+            <code style={{ color: "#3b82f6" }}>source()</code> references the YAML definition.
+            Change the database/schema in one place when environments differ.
           </p>
         </motion.div>
       </ClickReveal>
+      </div>
     </div>
   );
 }

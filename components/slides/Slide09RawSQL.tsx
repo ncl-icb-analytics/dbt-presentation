@@ -26,8 +26,13 @@ QUALIFY ROW_NUMBER() OVER (
 
 export default function Slide11RawSQL() {
   return (
-    <div className="slide" style={{ padding: "3rem 4rem" }}>
-      <h2 style={{ marginBottom: "1rem" }}>Starting point: Raw SQL</h2>
+    <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
+      <h2 style={{ marginBottom: "0.25rem" }}>Starting point: Raw SQL</h2>
+      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+        Hardcoded table names, magic numbers, no tests, no docs.
+      </p>
+
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "flex-start", paddingTop: "1.5rem" }}>
       <CodeSlideLayout
         files={files}
         activeFile="blood_pressure_latest.sql"
@@ -35,9 +40,7 @@ export default function Slide11RawSQL() {
         lang="sql"
         projectName="my project"
       />
-      <p style={{ marginTop: "1rem", fontSize: "1rem" }}>
-        Hardcoded table names, magic numbers, no tests, no docs.
-      </p>
+      </div>
     </div>
   );
 }

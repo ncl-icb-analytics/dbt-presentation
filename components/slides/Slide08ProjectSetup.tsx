@@ -56,12 +56,13 @@ export default function Slide10ProjectSetup() {
   const code = activeFile === "dbt_project.yml" ? dbtProjectCode : profilesCode;
 
   return (
-    <div className="slide" style={{ padding: "2.5rem 3rem" }}>
-      <h2 style={{ marginBottom: "0.5rem" }}>Project setup</h2>
-      <p style={{ color: "#64748b", fontSize: "1rem", marginBottom: "1.25rem" }}>
+    <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
+      <h2 style={{ marginBottom: "0.25rem" }}>Project setup</h2>
+      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
         Every dbt project needs two config files: one defines the project, the other connects to your warehouse.
       </p>
 
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "flex-start", paddingTop: "1.5rem" }}>
       <div style={{ marginBottom: "1.25rem" }}>
         <div style={{
           display: "flex",
@@ -138,6 +139,7 @@ export default function Slide10ProjectSetup() {
           <span style={{ color: "#94a3b8" }}> — Connection details. Lives in repo root (credentials via env vars).</span>
         </div>
       </motion.div>
+      </div>
     </div>
   );
 }

@@ -71,8 +71,13 @@ export default function Slide16Tests() {
   const isStep1 = currentStep >= 1;
 
   return (
-    <div className="slide" style={{ padding: "3rem 4rem" }}>
-      <h2 style={{ marginBottom: "1rem" }}>Step 5: Add tests</h2>
+    <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
+      <h2 style={{ marginBottom: "0.25rem" }}>Step 5: Add tests</h2>
+      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+        Validate data quality on every build. Catch issues before they reach dashboards.
+      </p>
+
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "flex-start", paddingTop: "1.5rem" }}>
       <CodeSlideLayout
         files={files}
         activeFile="models/_models.yml"
@@ -82,10 +87,11 @@ export default function Slide16Tests() {
         projectName="dbt-ncl-analytics"
       />
       <ClickReveal step={1}>
-        <p style={{ marginTop: "1rem", fontSize: "1rem" }}>
-          <code>dbt test</code> runs these on every build. Catch issues before they reach dashboards.
+        <p style={{ marginTop: "1rem", fontSize: "0.95rem", color: "#94a3b8" }}>
+          <code style={{ color: "#eab308" }}>dbt test</code> runs these assertions. Built-in: unique, not_null, accepted_values, relationships.
         </p>
       </ClickReveal>
+      </div>
     </div>
   );
 }

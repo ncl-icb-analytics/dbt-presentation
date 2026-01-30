@@ -15,9 +15,13 @@ const features = [
 
 export default function Slide23Recap() {
   return (
-    <div className="slide" style={{ padding: "2.5rem 4rem" }}>
-      <h2 style={{ marginBottom: "1.5rem" }}>What we covered</h2>
+    <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
+      <h2 style={{ marginBottom: "0.25rem" }}>What we covered</h2>
+      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+        Start with sources, ref(), and tests. Add the rest as you scale.
+      </p>
 
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
       <div style={{
         display: "grid",
         gridTemplateColumns: "1fr 1fr",
@@ -51,19 +55,7 @@ export default function Slide23Recap() {
         ))}
       </div>
 
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.6 }}
-        style={{
-          marginTop: "1.5rem",
-          fontSize: "1.1rem",
-          color: "#94a3b8",
-          textAlign: "center",
-        }}
-      >
-        Start with <span style={{ color: "#f97316" }}>sources</span>, <span style={{ color: "#22c55e" }}>ref()</span>, and <span style={{ color: "#eab308" }}>tests</span>. Add the rest as you scale.
-      </motion.p>
+      </div>
     </div>
   );
 }

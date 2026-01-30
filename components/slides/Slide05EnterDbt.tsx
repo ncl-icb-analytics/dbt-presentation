@@ -5,8 +5,8 @@ import ClickReveal from "../ClickReveal";
 export default function Slide07EnterDbt() {
   return (
     <div className="slide">
-      <h2>Enter dbt</h2>
-      <p>dbt applies software engineering practices to SQL transformations.</p>
+      <h2>What dbt offers</h2>
+      <p>Capabilities available when using dbt for transformations</p>
 
       <ul>
         <ClickReveal step={1}>

@@ -45,11 +45,13 @@ WHERE encounter_date > (SELECT MAX(encounter_date) FROM {{ this }})
 
 export default function Slide21IncrementalModels() {
   return (
-    <div className="slide" style={{ padding: "2rem 4rem" }}>
-      <h2 style={{ marginBottom: "0.75rem" }}>Incremental models</h2>
-      <p style={{ color: "#94a3b8", marginBottom: "1.5rem", fontSize: "1rem" }}>
-        Only process new or changed data. On first run, builds the full table. Subsequent runs append/merge new rows.
+    <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
+      <h2 style={{ marginBottom: "0.25rem" }}>Incremental models</h2>
+      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+        Only process new or changed data. First run builds full table, subsequent runs append/merge.
       </p>
+
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "flex-start", paddingTop: "1.5rem" }}>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -81,6 +83,7 @@ export default function Slide21IncrementalModels() {
         <span style={{ color: "#94a3b8", fontSize: "0.9rem" }}> — true when table exists and not running with </span>
         <code style={{ color: "#22c55e", fontSize: "0.9rem" }}>--full-refresh</code>
       </motion.div>
+      </div>
     </div>
   );
 }

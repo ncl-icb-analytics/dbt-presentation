@@ -431,7 +431,7 @@ const DbtDAGExecution = forwardRef<DbtDAGExecutionHandle, DbtDAGExecutionProps>(
 
       {/* Terminal Log */}
       <div style={{
-        width: "300px",
+        width: "400px",
         background: "#0d1117",
         borderRadius: "0.75rem",
         border: "1px solid #30363d",

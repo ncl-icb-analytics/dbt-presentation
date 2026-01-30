@@ -91,8 +91,13 @@ export default function Slide15UseRef() {
   const isStep1 = currentStep >= 1;
 
   return (
-    <div className="slide" style={{ padding: "3rem 4rem" }}>
-      <h2 style={{ marginBottom: "1rem" }}>Step 4: Use ref() for dependencies</h2>
+    <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
+      <h2 style={{ marginBottom: "0.25rem" }}>Step 4: Use ref() for dependencies</h2>
+      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+        Declare dependencies. dbt builds models in the right order automatically.
+      </p>
+
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "flex-start", paddingTop: "1.5rem" }}>
       <CodeSlideLayout
         files={files}
         activeFile="models/int_blood_pressure_latest.sql"
@@ -102,10 +107,11 @@ export default function Slide15UseRef() {
         projectName="dbt-ncl-analytics"
       />
       <ClickReveal step={1}>
-        <p style={{ marginTop: "1rem", fontSize: "1rem" }}>
-          <code>ref()</code> declares dependencies. dbt builds models in the right order automatically.
+        <p style={{ marginTop: "1rem", fontSize: "0.95rem", color: "#94a3b8" }}>
+          <code style={{ color: "#22c55e" }}>ref('model_name')</code> resolves to the correct schema/table at runtime.
         </p>
       </ClickReveal>
+      </div>
     </div>
   );
 }

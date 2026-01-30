@@ -7,38 +7,43 @@ export interface SlideConfig {
 }
 
 export const slides: SlideConfig[] = [
-  // Section 1: Problem Context (1-5)
-  { id: 1, title: "From SQL Scripts to Data Pipelines with dbt", layout: "center" },
-  { id: 2, title: "The classic data pipeline" },
-  { id: 3, title: "Then requirements grow..." },
-  { id: 4, title: "The transformation layer" },
-  { id: 5, title: "The observability problem", steps: 5 },
+  // Section 1: Context & Framing (1-4)
+  { id: 1, title: "dbt: A Framework for SQL Transformations", layout: "center" },
+  { id: 2, title: "Requirements of a Mature Analytics Workflow" },
+  { id: 3, title: "The Analytics Development Lifecycle" },
+  { id: 4, title: "Data team roles" },
 
-  // Section 2: Introducing dbt (6-8)
-  { id: 6, title: "Enter dbt", steps: 5 },
+  // Section 2: The Problem & Solution (5-8)
+  { id: 5, title: "The transformation layer" },
+  { id: 6, title: "Challenges at scale", steps: 5 },
   { id: 7, title: "Where dbt fits" },
-  { id: 8, title: "Let's see it in action", layout: "center" },
+  { id: 8, title: "What dbt offers", steps: 5 },
 
-  // Section 3: Getting Started - Basics (9-17)
-  { id: 9, title: "Project setup" },
-  { id: 10, title: "Starting point: Raw SQL" },
-  { id: 11, title: "Step 1: Put your SQL in models/", steps: 1 },
-  { id: 12, title: "Step 2: Define your sources", steps: 1 },
-  { id: 13, title: "Step 3: Create staging models" },
-  { id: 14, title: "Step 4: Use ref() for dependencies", steps: 1 },
-  { id: 15, title: "Step 5: Add tests", steps: 1 },
-  { id: 16, title: "Step 6: Document your models" },
-  { id: 17, title: "How dbt runs" },
+  // Section 3: Demo (9)
+  { id: 9, title: "Let's see it in action", layout: "center" },
 
-  // Section 4: Going Further (18-21)
-  { id: 18, title: "Going further", layout: "center" },
-  { id: 19, title: "Semantic models" },
-  { id: 20, title: "Incremental models" },
-  { id: 21, title: "Snapshots" },
+  // Section 3: Getting Started - Basics (10-18)
+  { id: 10, title: "Project setup" },
+  { id: 11, title: "Starting point: Raw SQL" },
+  { id: 12, title: "Step 1: Put your SQL in models/", steps: 1 },
+  { id: 13, title: "Step 2: Define your sources", steps: 1 },
+  { id: 14, title: "Step 3: Create staging models" },
+  { id: 15, title: "Step 4: Use ref() for dependencies", steps: 1 },
+  { id: 16, title: "Step 5: Add tests", steps: 1 },
+  { id: 17, title: "Step 6: Document your models" },
+  { id: 18, title: "How dbt runs" },
 
-  // Section 5: Wrap-up (22-23)
-  { id: 22, title: "What we covered" },
-  { id: 23, title: "Questions?", layout: "center" },
+  // Section 4: Going Further (19-24)
+  { id: 19, title: "Going further", layout: "center" },
+  { id: 20, title: "Macros" },
+  { id: 21, title: "Custom tests" },
+  { id: 22, title: "Semantic models" },
+  { id: 23, title: "Incremental models" },
+  { id: 24, title: "Snapshots" },
+
+  // Section 5: Wrap-up (25-26)
+  { id: 25, title: "What we covered" },
+  { id: 26, title: "Questions?", layout: "center" },
 ];
 
 export const totalSlides = slides.length;

@@ -68,8 +68,13 @@ models:
 
 export default function Slide17DocumentModels() {
   return (
-    <div className="slide" style={{ padding: "3rem 4rem" }}>
-      <h2 style={{ marginBottom: "1rem" }}>Step 6: Document your models</h2>
+    <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
+      <h2 style={{ marginBottom: "0.25rem" }}>Step 6: Document your models</h2>
+      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+        Descriptions live next to tests. Generate a searchable docs site.
+      </p>
+
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "flex-start", paddingTop: "1.5rem" }}>
       <CodeSlideLayout
         files={files}
         activeFile="models/_models.yml"
@@ -91,8 +96,9 @@ export default function Slide17DocumentModels() {
           color: "#94a3b8",
         }}
       >
-        Descriptions live next to tests. Run <code style={{ color: "#f97316" }}>dbt docs generate</code> to build a searchable site.
+        Run <code style={{ color: "#f97316" }}>dbt docs generate</code> then <code style={{ color: "#f97316" }}>dbt docs serve</code> to view.
       </motion.div>
+      </div>
     </div>
   );
 }

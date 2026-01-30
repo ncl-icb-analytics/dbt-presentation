@@ -56,9 +56,9 @@ export default function Slide03RequirementsGrow() {
   const getProc = (id: string) => procedures.find(p => p.id === id);
 
   return (
-    <div className="slide" style={{ padding: "2rem 3rem 3.5rem", display: "flex", flexDirection: "column" }}>
-      <h2 style={{ marginBottom: "0.5rem" }}>Then requirements grow...</h2>
-      <p style={{ color: "#64748b", fontSize: "1rem", marginBottom: "1rem" }}>
+    <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
+      <h2 style={{ marginBottom: "0.25rem" }}>Then requirements grow...</h2>
+      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
         More sources, more procedures, more dependencies to track.
       </p>
 

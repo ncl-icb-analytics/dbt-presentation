@@ -69,8 +69,13 @@ FROM {{ source('olids', 'observation') }}`;
 
 export default function Slide14StagingModels() {
   return (
-    <div className="slide" style={{ padding: "3rem 4rem" }}>
-      <h2 style={{ marginBottom: "1rem" }}>Step 3: Create staging models</h2>
+    <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
+      <h2 style={{ marginBottom: "0.25rem" }}>Step 3: Create staging models</h2>
+      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+        Thin wrappers over sources. Rename, cast, select only what you need.
+      </p>
+
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "flex-start", paddingTop: "1.5rem" }}>
       <CodeSlideLayout
         files={files}
         activeFile="models/staging/stg_olids_observation.sql"
@@ -110,6 +115,7 @@ export default function Slide14StagingModels() {
           <span style={{ color: "#94a3b8" }}> — If the source schema changes, fix it here once.</span>
         </div>
       </motion.div>
+      </div>
     </div>
   );
 }

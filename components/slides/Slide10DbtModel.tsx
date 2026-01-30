@@ -73,8 +73,13 @@ export default function Slide12DbtModel() {
   const isStep1 = currentStep >= 1;
 
   return (
-    <div className="slide" style={{ padding: "3rem 4rem" }}>
-      <h2 style={{ marginBottom: "1rem" }}>Step 1: Put your SQL in models/</h2>
+    <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
+      <h2 style={{ marginBottom: "0.25rem" }}>Step 1: Put your SQL in models/</h2>
+      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+        You write SELECT, dbt handles CREATE/REPLACE.
+      </p>
+
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "flex-start", paddingTop: "1.5rem" }}>
       <CodeSlideLayout
         files={isStep1 ? filesStep1 : filesStep0}
         activeFile={isStep1 ? "models/int_blood_pressure_latest.sql" : "blood_pressure_latest.sql"}
@@ -84,25 +89,40 @@ export default function Slide12DbtModel() {
         highlightLines={isStep1 ? [1] : []}
       />
       <ClickReveal step={1}>
-        <div style={{ marginTop: "1rem" }}>
-          <p style={{ fontSize: "1rem", marginBottom: "0.75rem" }}>
-            dbt handles CREATE/REPLACE. You just write SELECT.
-          </p>
+        <div style={{
+          marginTop: "1rem",
+          display: "flex",
+          gap: "1rem",
+        }}>
           <div style={{
+            flex: 1,
+            padding: "0.75rem 1rem",
+            background: "rgba(34, 197, 94, 0.1)",
+            border: "1px solid rgba(34, 197, 94, 0.3)",
+            borderRadius: "0.5rem",
+            fontSize: "0.9rem",
+          }}>
+            <span style={{ color: "#22c55e", fontWeight: 500 }}>dbt run</span>{" "}
+            <span style={{ color: "#94a3b8" }}>
+              → creates table <code style={{ color: "#22c55e" }}>int_blood_pressure_latest</code> in your configured database/schema.
+            </span>
+          </div>
+          <div style={{
+            flex: 1,
             padding: "0.75rem 1rem",
             background: "rgba(249, 115, 22, 0.1)",
             border: "1px solid rgba(249, 115, 22, 0.3)",
             borderRadius: "0.5rem",
-            fontSize: "0.95rem",
+            fontSize: "0.9rem",
           }}>
             <span style={{ color: "#f97316" }}>⚠</span>{" "}
             <span style={{ color: "#94a3b8" }}>
-              This works, but we're still hardcoding table names.
-              dbt's power comes from proper referencing — let's add that next.
+              We're still hardcoding source tables. Let's fix that next.
             </span>
           </div>
         </div>
       </ClickReveal>
+      </div>
     </div>
   );
 }

@@ -28,7 +28,7 @@ export default function Slide19GoingFurther() {
           textAlign: "center",
         }}
       >
-        Semantic models, incremental builds, and snapshots
+        Macros, custom tests, semantic models, incremental builds, and snapshots
       </motion.p>
     </div>
   );

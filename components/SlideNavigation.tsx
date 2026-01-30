@@ -172,9 +172,12 @@ export default function SlideNavigation({
         </motion.button>
       )}
 
-      <div className="nav-hint">
-        <kbd>←</kbd> <kbd>→</kbd> to navigate
-      </div>
+      {/* Hide on slide 1 where custom hint exists */}
+      {slideId !== 1 && (
+        <div className="nav-hint">
+          <kbd>←</kbd> <kbd>→</kbd> to navigate
+        </div>
+      )}
     </SlideContext.Provider>
   );
 }

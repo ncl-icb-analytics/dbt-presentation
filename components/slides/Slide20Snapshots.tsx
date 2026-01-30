@@ -40,11 +40,13 @@ FROM {{ source('ehr', 'patient') }}
 
 export default function Slide22Snapshots() {
   return (
-    <div className="slide" style={{ padding: "2rem 4rem" }}>
-      <h2 style={{ marginBottom: "0.75rem" }}>Snapshots</h2>
-      <p style={{ color: "#94a3b8", marginBottom: "1.5rem", fontSize: "1rem" }}>
-        Track how data changes over time. dbt adds <code style={{ color: "#a855f7" }}>dbt_valid_from</code> and <code style={{ color: "#a855f7" }}>dbt_valid_to</code> columns automatically (Type 2 SCD).
+    <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
+      <h2 style={{ marginBottom: "0.25rem" }}>Snapshots</h2>
+      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+        Track how data changes over time. Adds <code style={{ color: "#a855f7" }}>dbt_valid_from</code>/<code style={{ color: "#a855f7" }}>dbt_valid_to</code> automatically (Type 2 SCD).
       </p>
+
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "flex-start", paddingTop: "1.5rem" }}>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -94,6 +96,7 @@ export default function Slide22Snapshots() {
           </p>
         </div>
       </motion.div>
+      </div>
     </div>
   );
 }

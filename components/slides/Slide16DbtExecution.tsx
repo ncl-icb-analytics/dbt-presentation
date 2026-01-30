@@ -28,8 +28,8 @@ export default function Slide18DbtExecution() {
   };
 
   return (
-    <div className="slide" style={{ padding: "1.5rem 2.5rem", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+    <div className="slide" style={{ padding: "1.5rem 2.5rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "0.5rem" }}>
         <h2 style={{ margin: 0 }}>How dbt runs</h2>
         <div style={{ display: "flex", gap: "0.5rem" }}>
           {(["run", "build", "test"] as Command[]).map((cmd) => (
@@ -113,7 +113,7 @@ export default function Slide18DbtExecution() {
           fontSize: "0.75rem",
         }}>
           <span style={{ color: "#22c55e", fontWeight: 500 }}>Parallel</span>
-          <span style={{ color: "#94a3b8" }}> — Independent models run together</span>
+          <span style={{ color: "#94a3b8" }}> — Models that don't depend on each other run concurrently</span>
         </div>
         <div style={{
           padding: "0.4rem 0.6rem",
@@ -123,7 +123,7 @@ export default function Slide18DbtExecution() {
           fontSize: "0.75rem",
         }}>
           <span style={{ color: "#ef4444", fontWeight: 500 }}>Isolated</span>
-          <span style={{ color: "#94a3b8" }}> — Unrelated models still run</span>
+          <span style={{ color: "#94a3b8" }}> — Failures don't propagate to unrelated branches</span>
         </div>
         <div style={{
           padding: "0.4rem 0.6rem",
@@ -133,7 +133,7 @@ export default function Slide18DbtExecution() {
           fontSize: "0.75rem",
         }}>
           <span style={{ color: "#94a3b8", fontWeight: 500 }}>Smart skip</span>
-          <span style={{ color: "#64748b" }}> — Downstream of failures skipped</span>
+          <span style={{ color: "#64748b" }}> — Only downstream dependents are skipped</span>
         </div>
       </motion.div>
     </div>

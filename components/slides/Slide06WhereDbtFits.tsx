@@ -4,9 +4,13 @@ import { motion } from "framer-motion";
 
 export default function Slide08WhereDbtFits() {
   return (
-    <div className="slide" style={{ padding: "2.5rem 3rem" }}>
-      <h2 style={{ marginBottom: "2rem" }}>Where dbt fits</h2>
+    <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
+      <h2 style={{ marginBottom: "0.25rem" }}>Where dbt fits</h2>
+      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+        The "T" in ELT — transforming data after it lands in our warehouse.
+      </p>
 
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
       {/* ELT Pipeline visualization */}
       <div style={{
         display: "flex",
@@ -98,7 +102,7 @@ export default function Slide08WhereDbtFits() {
         </motion.div>
       </div>
 
-      {/* Collaborative framing */}
+      {/* Framework benefits */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -108,10 +112,6 @@ export default function Slide08WhereDbtFits() {
           justifyContent: "center",
           alignItems: "stretch",
           gap: "1.5rem",
-          padding: "1.25rem 1.5rem",
-          background: "rgba(0,0,0,0.2)",
-          borderRadius: "0.75rem",
-          marginBottom: "1.25rem",
         }}
       >
         <div style={{
@@ -123,10 +123,10 @@ export default function Slide08WhereDbtFits() {
           border: "1px solid rgba(59, 130, 246, 0.3)",
         }}>
           <div style={{ fontSize: "0.95rem", fontWeight: 600, color: "#3b82f6", marginBottom: "0.4rem" }}>
-            You already know SQL
+            SQL-first
           </div>
           <div style={{ fontSize: "0.85rem", color: "#94a3b8", lineHeight: 1.5 }}>
-            dbt models are just SELECT statements. No new language to learn.
+            Write SELECT statements. dbt handles CREATE, dependencies, and execution order.
           </div>
         </div>
 
@@ -139,10 +139,10 @@ export default function Slide08WhereDbtFits() {
           border: "1px solid rgba(249, 115, 22, 0.3)",
         }}>
           <div style={{ fontSize: "0.95rem", fontWeight: 600, color: "#f97316", marginBottom: "0.4rem" }}>
-            dbt is a framework
+            Built-in quality
           </div>
           <div style={{ fontSize: "0.85rem", color: "#94a3b8", lineHeight: 1.5 }}>
-            It wraps your SQL with testing, versioning, documentation, and dependency management.
+            Testing, documentation, and lineage tracking come standard.
           </div>
         </div>
 
@@ -155,26 +155,14 @@ export default function Slide08WhereDbtFits() {
           border: "1px solid rgba(34, 197, 94, 0.3)",
         }}>
           <div style={{ fontSize: "0.95rem", fontWeight: 600, color: "#22c55e", marginBottom: "0.4rem" }}>
-            We collaborate
+            Useful patterns
           </div>
           <div style={{ fontSize: "0.85rem", color: "#94a3b8", lineHeight: 1.5 }}>
-            Analysts and analytics engineers build together in the same framework.
+            Macros, incremental models, and snapshots simplify complex or repetitive work.
           </div>
         </div>
       </motion.div>
-
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.7 }}
-        style={{
-          textAlign: "center",
-          fontSize: "1rem",
-          color: "#64748b",
-        }}
-      >
-        A framework that enables a more mature analytics practice.
-      </motion.p>
+      </div>
     </div>
   );
 }
