@@ -30,6 +30,7 @@ export default function SlideNavigator() {
       // Open: Cmd+K (Mac) or Ctrl+K (Windows)
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
+        e.stopPropagation();
         setIsOpen((prev) => !prev);
         setSearch("");
         setSelectedIndex(0);
@@ -37,6 +38,9 @@ export default function SlideNavigator() {
       }
 
       if (!isOpen) return;
+
+      // Stop all key events from reaching SlideNavigation when modal is open
+      e.stopPropagation();
 
       if (e.key === "Escape") {
         e.preventDefault();
@@ -56,8 +60,8 @@ export default function SlideNavigator() {
       }
     };
 
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown, true);
+    return () => window.removeEventListener("keydown", handleKeyDown, true);
   }, [isOpen, filteredSlides, selectedIndex]);
 
   // Focus input when modal opens
