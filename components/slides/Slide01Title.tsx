@@ -57,61 +57,6 @@ export default function Slide01Title() {
           </p>
         </motion.div>
 
-        {/* Keyboard navigation hint */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          style={{
-            position: "fixed",
-            bottom: "2rem",
-            right: "2rem",
-            display: "flex",
-            alignItems: "center",
-            gap: "0.75rem",
-            color: "#475569",
-            fontSize: "0.9rem",
-          }}
-        >
-          <span>Press</span>
-          <motion.div
-            style={{
-              display: "flex",
-              gap: "0.5rem",
-            }}
-          >
-            <kbd style={{
-              padding: "0.4rem 0.7rem",
-              background: "rgba(51, 65, 85, 0.5)",
-              border: "1px solid #475569",
-              borderRadius: "6px",
-              fontSize: "0.85rem",
-              color: "#94a3b8",
-              boxShadow: "0 2px 0 #1e293b",
-            }}>
-              ←
-            </kbd>
-            <motion.kbd
-              animate={{
-                boxShadow: ["0 2px 0 #1e293b", "0 1px 0 #1e293b", "0 2px 0 #1e293b"],
-                y: [0, 1, 0],
-              }}
-              transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 1 }}
-              style={{
-                padding: "0.4rem 0.7rem",
-                background: "rgba(59, 130, 246, 0.2)",
-                border: "1px solid #3b82f6",
-                borderRadius: "6px",
-                fontSize: "0.85rem",
-                color: "#93c5fd",
-                boxShadow: "0 2px 0 #1e293b",
-              }}
-            >
-              →
-            </motion.kbd>
-          </motion.div>
-          <span>to navigate</span>
-        </motion.div>
       </div>
     </div>
   );

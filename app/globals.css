@@ -182,11 +182,23 @@ pre.shiki {
   bottom: 1.5rem;
   right: 1.5rem;
   font-size: 0.8rem;
-  color: var(--muted);
-  opacity: 0.4;
+  color: rgba(148, 163, 184, 0.7);
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+.nav-hint kbd {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background: rgba(51, 65, 85, 0.8);
+  border: 1px solid rgba(71, 85, 105, 0.8);
+  border-bottom: 2px solid rgba(30, 41, 59, 0.9);
+  border-radius: 5px;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.7rem;
+  color: rgba(226, 232, 240, 0.9);
+  line-height: 1;
 }
 
 /* Slide counter */
@@ -453,4 +465,14 @@ pre.shiki {
 
 .shiki-magic-move-line.highlighted .shiki-magic-move-line-number {
   color: #93c5fd;
+}
+
+/* Slide Navigator kbd styling */
+.nav-kbd {
+  padding: 0.15rem 0.4rem;
+  background: rgba(51, 65, 85, 0.5);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.7rem;
 }

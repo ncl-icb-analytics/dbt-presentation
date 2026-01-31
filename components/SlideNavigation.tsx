@@ -37,6 +37,11 @@ export default function SlideNavigation({
 }: SlideNavigationProps) {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(0);
+  const [isMac, setIsMac] = useState(false);
+
+  useEffect(() => {
+    setIsMac(navigator.platform.toUpperCase().indexOf("MAC") >= 0);
+  }, []);
 
   const goNext = useCallback(() => {
     if (currentStep < totalSteps) {
@@ -62,6 +67,11 @@ export default function SlideNavigation({
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      // Skip Cmd+K / Ctrl+K (handled by SlideNavigator)
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        return;
+      }
+
       if (e.key === "ArrowRight" || e.key === " " || e.key === "Enter") {
         e.preventDefault();
         goNext();
@@ -172,12 +182,11 @@ export default function SlideNavigation({
         </motion.button>
       )}
 
-      {/* Hide on slide 1 where custom hint exists */}
-      {slideId !== 1 && (
-        <div className="nav-hint">
-          <kbd>←</kbd> <kbd>→</kbd> to navigate
-        </div>
-      )}
+      <div className="nav-hint">
+        <kbd>←</kbd> <kbd>→</kbd> to navigate
+        <span style={{ margin: "0 0.75rem", opacity: 0.4 }}>|</span>
+        <kbd>{isMac ? "⌘" : "Ctrl"}</kbd><kbd>K</kbd> jump to slide
+      </div>
     </SlideContext.Provider>
   );
 }
