@@ -13,7 +13,7 @@ export default function Slide04TransformationLayer() {
   return (
     <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
       <h2 style={{ marginBottom: "0.25rem" }}>The transformation layer</h2>
-      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+      <p style={{ color: "#64748b", fontSize: "1.05rem", marginBottom: "0" }}>
         All our transformations live here — interconnected and interdependent.
       </p>
 
@@ -26,7 +26,7 @@ export default function Slide04TransformationLayer() {
         }}>
           <div style={{
             color: "#94a3b8",
-            fontSize: "0.85rem",
+            fontSize: "1.05rem",
             marginBottom: "0.5rem",
           }}>
             Each node is a transformation. Lines show dependencies — what must run first.
@@ -46,8 +46,8 @@ export default function Slide04TransformationLayer() {
               padding: "1rem 1.25rem",
               width: "280px",
             }}>
-              <div style={{ color: "#fca5a5", fontWeight: 600, fontSize: "1rem", marginBottom: "0.25rem" }}>What runs when?</div>
-              <div style={{ color: "#94a3b8", fontSize: "0.85rem" }}>Scheduling jobs in the right order is hard</div>
+              <div style={{ color: "#fca5a5", fontWeight: 600, fontSize: "1.2rem", marginBottom: "0.35rem" }}>What runs when?</div>
+              <div style={{ color: "#94a3b8", fontSize: "1.05rem" }}>Scheduling jobs in the right order is hard</div>
             </div>
             <div style={{
               background: "rgba(251, 191, 36, 0.1)",
@@ -56,8 +56,8 @@ export default function Slide04TransformationLayer() {
               padding: "1rem 1.25rem",
               width: "280px",
             }}>
-              <div style={{ color: "#fcd34d", fontWeight: 600, fontSize: "1rem", marginBottom: "0.25rem" }}>Did it work?</div>
-              <div style={{ color: "#94a3b8", fontSize: "0.85rem" }}>Errors cascade through downstream nodes</div>
+              <div style={{ color: "#fcd34d", fontWeight: 600, fontSize: "1.2rem", marginBottom: "0.35rem" }}>Did it work?</div>
+              <div style={{ color: "#94a3b8", fontSize: "1.05rem" }}>Errors cascade through downstream nodes</div>
             </div>
             <div style={{
               background: "rgba(249, 115, 22, 0.1)",
@@ -66,8 +66,8 @@ export default function Slide04TransformationLayer() {
               padding: "1rem 1.25rem",
               width: "280px",
             }}>
-              <div style={{ color: "#fdba74", fontWeight: 600, fontSize: "1rem", marginBottom: "0.25rem" }}>What will this break?</div>
-              <div style={{ color: "#94a3b8", fontSize: "0.85rem" }}>Impact of changes is hard to trace</div>
+              <div style={{ color: "#fdba74", fontWeight: 600, fontSize: "1.2rem", marginBottom: "0.35rem" }}>What will this break?</div>
+              <div style={{ color: "#94a3b8", fontSize: "1.05rem" }}>Impact of changes is hard to trace</div>
             </div>
           </div>
         </div>
@@ -84,7 +84,7 @@ export default function Slide04TransformationLayer() {
           borderRadius: "0.375rem",
           padding: "0.4rem 0.75rem",
           color: "#94a3b8",
-          fontSize: "0.8rem",
+          fontSize: "1rem",
           cursor: "pointer",
         }}
       >

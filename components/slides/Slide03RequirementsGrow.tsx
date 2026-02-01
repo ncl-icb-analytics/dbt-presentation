@@ -58,7 +58,7 @@ export default function Slide03RequirementsGrow() {
   return (
     <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
       <h2 style={{ marginBottom: "0.25rem" }}>Then requirements grow...</h2>
-      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+      <p style={{ color: "#64748b", fontSize: "1.05rem", marginBottom: "0" }}>
         More sources, more procedures, more dependencies to track.
       </p>
 
@@ -120,10 +120,10 @@ export default function Slide03RequirementsGrow() {
             animate={{ opacity: explosionStep >= 4 ? 1 : 0, y: explosionStep >= 4 ? 0 : 10 }}
             style={{ textAlign: "center" }}
           >
-            <p style={{ color: "#e2e8f0", fontSize: "1.15rem", fontWeight: 500, marginBottom: "0.5rem" }}>
+            <p style={{ color: "#e2e8f0", fontSize: "1.35rem", fontWeight: 500, marginBottom: "0.6rem" }}>
               At this scale, things get hard to manage.
             </p>
-            <p style={{ color: "#94a3b8", fontSize: "1rem" }}>
+            <p style={{ color: "#94a3b8", fontSize: "1.2rem" }}>
               Execution order. Error handling. Change tracking. Testing.
             </p>
           </motion.div>
@@ -141,7 +141,7 @@ export default function Slide03RequirementsGrow() {
           borderRadius: "0.375rem",
           padding: "0.4rem 0.75rem",
           color: "#94a3b8",
-          fontSize: "0.8rem",
+          fontSize: "1rem",
           cursor: "pointer",
         }}
       >

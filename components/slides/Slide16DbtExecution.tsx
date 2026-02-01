@@ -43,7 +43,7 @@ export default function Slide18DbtExecution() {
                 borderRadius: "0.375rem",
                 color: command === cmd ? "#f97316" : "#94a3b8",
                 cursor: "pointer",
-                fontSize: "0.85rem",
+                fontSize: "1.05rem",
                 fontFamily: "var(--font-mono), monospace",
               }}
             >
@@ -80,7 +80,7 @@ export default function Slide18DbtExecution() {
             background: "rgba(59, 130, 246, 0.1)",
             border: "1px solid rgba(59, 130, 246, 0.3)",
             borderRadius: "0.375rem",
-            fontSize: "0.8rem",
+            fontSize: "1rem",
             display: "flex",
             alignItems: "center",
             gap: "0.4rem",
@@ -110,7 +110,7 @@ export default function Slide18DbtExecution() {
           background: "rgba(34, 197, 94, 0.1)",
           border: "1px solid rgba(34, 197, 94, 0.3)",
           borderRadius: "0.375rem",
-          fontSize: "0.75rem",
+          fontSize: "0.9rem",
         }}>
           <span style={{ color: "#22c55e", fontWeight: 500 }}>Parallel</span>
           <span style={{ color: "#94a3b8" }}> — Models that don't depend on each other run concurrently</span>
@@ -120,7 +120,7 @@ export default function Slide18DbtExecution() {
           background: "rgba(239, 68, 68, 0.1)",
           border: "1px solid rgba(239, 68, 68, 0.3)",
           borderRadius: "0.375rem",
-          fontSize: "0.75rem",
+          fontSize: "0.9rem",
         }}>
           <span style={{ color: "#ef4444", fontWeight: 500 }}>Isolated</span>
           <span style={{ color: "#94a3b8" }}> — Failures don't propagate to unrelated branches</span>
@@ -130,7 +130,7 @@ export default function Slide18DbtExecution() {
           background: "rgba(100, 116, 139, 0.1)",
           border: "1px solid rgba(100, 116, 139, 0.3)",
           borderRadius: "0.375rem",
-          fontSize: "0.75rem",
+          fontSize: "0.9rem",
         }}>
           <span style={{ color: "#94a3b8", fontWeight: 500 }}>Smart skip</span>
           <span style={{ color: "#64748b" }}> — Only downstream dependents are skipped</span>

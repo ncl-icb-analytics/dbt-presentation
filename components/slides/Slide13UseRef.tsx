@@ -93,7 +93,7 @@ export default function Slide15UseRef() {
   return (
     <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
       <h2 style={{ marginBottom: "0.25rem" }}>Step 4: Use ref() for dependencies</h2>
-      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+      <p style={{ color: "#64748b", fontSize: "1.05rem", marginBottom: "0" }}>
         Declare dependencies. dbt builds models in the right order automatically.
       </p>
 
@@ -107,7 +107,7 @@ export default function Slide15UseRef() {
         projectName="dbt-ncl-analytics"
       />
       <ClickReveal step={1}>
-        <p style={{ marginTop: "1rem", fontSize: "0.95rem", color: "#94a3b8" }}>
+        <p style={{ marginTop: "1rem", fontSize: "1.15rem", color: "#94a3b8" }}>
           <code style={{ color: "#22c55e" }}>ref('model_name')</code> resolves to the correct schema/table at runtime.
         </p>
       </ClickReveal>

@@ -52,7 +52,7 @@ export default function Slide20SemanticModels() {
   return (
     <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
       <h2 style={{ marginBottom: "0.25rem" }}>Semantic models</h2>
-      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+      <p style={{ color: "#64748b", fontSize: "1.05rem", marginBottom: "0" }}>
         Snowflake semantic views via <code style={{ color: "#3b82f6" }}>dbt_semantic_view</code>. Define relationships, dimensions, and metrics.
       </p>
 
@@ -84,9 +84,9 @@ export default function Slide20SemanticModels() {
           borderLeft: "3px solid #3b82f6",
         }}
       >
-        <span style={{ color: "#94a3b8", fontSize: "0.9rem" }}>Query with </span>
-        <code style={{ color: "#3b82f6", fontSize: "0.9rem" }}>SELECT * FROM semantic_view(ref('...'))</code>
-        <span style={{ color: "#94a3b8", fontSize: "0.9rem" }}> or use Cortex AI for natural language</span>
+        <span style={{ color: "#94a3b8", fontSize: "1.1rem" }}>Query with </span>
+        <code style={{ color: "#3b82f6", fontSize: "1.1rem" }}>SELECT * FROM semantic_view(ref('...'))</code>
+        <span style={{ color: "#94a3b8", fontSize: "1.1rem" }}> or use Cortex AI for natural language</span>
       </motion.div>
       </div>
     </div>

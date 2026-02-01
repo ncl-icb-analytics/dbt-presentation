@@ -73,7 +73,7 @@ export default function Slide16Tests() {
   return (
     <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
       <h2 style={{ marginBottom: "0.25rem" }}>Step 5: Add tests</h2>
-      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+      <p style={{ color: "#64748b", fontSize: "1.05rem", marginBottom: "0" }}>
         Validate data quality on every build. Catch issues before they reach dashboards.
       </p>
 
@@ -87,9 +87,39 @@ export default function Slide16Tests() {
         projectName="dbt-ncl-analytics"
       />
       <ClickReveal step={1}>
-        <p style={{ marginTop: "1rem", fontSize: "0.95rem", color: "#94a3b8" }}>
-          <code style={{ color: "#eab308" }}>dbt test</code> runs these assertions. Built-in: unique, not_null, accepted_values, relationships.
-        </p>
+        <div style={{ marginTop: "1.25rem" }}>
+          <p style={{ fontSize: "1.1rem", color: "#94a3b8", marginBottom: "0.9rem" }}>
+            <code style={{ color: "#eab308" }}>dbt test</code> runs these assertions. Four built-in generic tests:
+          </p>
+          <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
+            {[
+              { name: "unique", desc: "No duplicate values" },
+              { name: "not_null", desc: "No NULL values" },
+              { name: "accepted_values", desc: "Only allowed values" },
+              { name: "relationships", desc: "Foreign key exists" },
+            ].map((test) => (
+              <div
+                key={test.name}
+                style={{
+                  background: "rgba(139, 92, 246, 0.1)",
+                  border: "1px solid rgba(139, 92, 246, 0.3)",
+                  borderRadius: "0.375rem",
+                  padding: "0.5rem 0.75rem",
+                  flex: 1,
+                }}
+              >
+                <code style={{ color: "#c4b5fd", fontSize: "1rem" }}>{test.name}</code>
+                <div style={{ color: "#64748b", fontSize: "0.85rem", marginTop: "0.25rem" }}>{test.desc}</div>
+              </div>
+            ))}
+          </div>
+          <div style={{ color: "#94a3b8", fontSize: "1.05rem", marginBottom: "0.6rem" }}>Additional tests from packages:</div>
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", fontSize: "1.05rem", color: "#64748b" }}>
+            <div><span style={{ color: "#f97316" }}>dbt_utils</span>: at_least_one, accepted_range, not_null_proportion, unique_combination_of_columns, sequential_values</div>
+            <div><span style={{ color: "#f97316" }}>dbt_expectations</span>: expect_column_values_to_be_between, expect_table_row_count_to_be_between, expect_column_to_exist</div>
+            <div><span style={{ color: "#f97316" }}>elementary</span>: volume_anomalies, freshness_anomalies, dimension_anomalies, schema_changes</div>
+          </div>
+        </div>
       </ClickReveal>
       </div>
     </div>

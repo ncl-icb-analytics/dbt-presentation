@@ -70,7 +70,7 @@ export default function Slide17DocumentModels() {
   return (
     <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
       <h2 style={{ marginBottom: "0.25rem" }}>Step 6: Document your models</h2>
-      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+      <p style={{ color: "#64748b", fontSize: "1.05rem", marginBottom: "0" }}>
         Descriptions live next to tests. Generate a searchable docs site.
       </p>
 
@@ -92,7 +92,7 @@ export default function Slide17DocumentModels() {
           padding: "0.75rem 1rem",
           background: "rgba(0,0,0,0.2)",
           borderRadius: "0.5rem",
-          fontSize: "0.95rem",
+          fontSize: "1.15rem",
           color: "#94a3b8",
         }}
       >

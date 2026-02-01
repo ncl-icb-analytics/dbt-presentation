@@ -22,7 +22,7 @@ export default function Slide02StoredProcs() {
   return (
     <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
       <h2 style={{ marginBottom: "0.25rem" }}>The classic data pipeline</h2>
-      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+      <p style={{ color: "#64748b", fontSize: "1.05rem", marginBottom: "0" }}>
         From source data to dashboard — the traditional approach with stored procedures.
       </p>
 
@@ -185,7 +185,7 @@ export default function Slide02StoredProcs() {
           transition={{ duration: 0.5 }}
           style={{ textAlign: "center", marginTop: "0.5rem" }}
         >
-          <p style={{ color: "#e2e8f0", fontSize: "1.1rem", fontWeight: 500 }}>
+          <p style={{ color: "#e2e8f0", fontSize: "1.3rem", fontWeight: 500 }}>
             Clear, logical, familiar SQL. This works well at small scale.
           </p>
         </motion.div>
@@ -202,7 +202,7 @@ export default function Slide02StoredProcs() {
           borderRadius: "0.375rem",
           padding: "0.4rem 0.75rem",
           color: "#94a3b8",
-          fontSize: "0.8rem",
+          fontSize: "1rem",
           cursor: "pointer",
         }}
       >

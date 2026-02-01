@@ -75,7 +75,7 @@ export default function Slide12DbtModel() {
   return (
     <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
       <h2 style={{ marginBottom: "0.25rem" }}>Step 1: Put your SQL in models/</h2>
-      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+      <p style={{ color: "#64748b", fontSize: "1.05rem", marginBottom: "0" }}>
         You write SELECT, dbt handles CREATE/REPLACE.
       </p>
 
@@ -100,7 +100,7 @@ export default function Slide12DbtModel() {
             background: "rgba(34, 197, 94, 0.1)",
             border: "1px solid rgba(34, 197, 94, 0.3)",
             borderRadius: "0.5rem",
-            fontSize: "0.9rem",
+            fontSize: "1.1rem",
           }}>
             <span style={{ color: "#22c55e", fontWeight: 500 }}>dbt run</span>{" "}
             <span style={{ color: "#94a3b8" }}>
@@ -113,7 +113,7 @@ export default function Slide12DbtModel() {
             background: "rgba(249, 115, 22, 0.1)",
             border: "1px solid rgba(249, 115, 22, 0.3)",
             borderRadius: "0.5rem",
-            fontSize: "0.9rem",
+            fontSize: "1.1rem",
           }}>
             <span style={{ color: "#f97316" }}>⚠</span>{" "}
             <span style={{ color: "#94a3b8" }}>

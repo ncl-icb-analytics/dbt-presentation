@@ -42,7 +42,7 @@ export default function Slide22Snapshots() {
   return (
     <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
       <h2 style={{ marginBottom: "0.25rem" }}>Snapshots</h2>
-      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+      <p style={{ color: "#64748b", fontSize: "1.05rem", marginBottom: "0" }}>
         Track how data changes over time. Adds <code style={{ color: "#a855f7" }}>dbt_valid_from</code>/<code style={{ color: "#a855f7" }}>dbt_valid_to</code> automatically (Type 2 SCD).
       </p>
 
@@ -79,9 +79,9 @@ export default function Slide22Snapshots() {
           borderRadius: "0.5rem",
           borderLeft: "3px solid #a855f7",
         }}>
-          <code style={{ color: "#a855f7", fontSize: "0.9rem" }}>strategy='timestamp'</code>
-          <p style={{ color: "#94a3b8", fontSize: "0.85rem", margin: "0.25rem 0 0 0" }}>
-            Build truly historical snapshots when source has an <code style={{ color: "#a855f7", fontSize: "0.85rem" }}>updated_at</code> column.
+          <code style={{ color: "#a855f7", fontSize: "1.1rem" }}>strategy='timestamp'</code>
+          <p style={{ color: "#94a3b8", fontSize: "1.05rem", margin: "0.3rem 0 0 0" }}>
+            Build truly historical snapshots when source has an <code style={{ color: "#a855f7", fontSize: "1.05rem" }}>updated_at</code> column.
           </p>
         </div>
         <div style={{
@@ -90,8 +90,8 @@ export default function Slide22Snapshots() {
           borderRadius: "0.5rem",
           borderLeft: "3px solid #a855f7",
         }}>
-          <code style={{ color: "#a855f7", fontSize: "0.9rem" }}>strategy='check'</code>
-          <p style={{ color: "#94a3b8", fontSize: "0.85rem", margin: "0.25rem 0 0 0" }}>
+          <code style={{ color: "#a855f7", fontSize: "1.1rem" }}>strategy='check'</code>
+          <p style={{ color: "#94a3b8", fontSize: "1.05rem", margin: "0.3rem 0 0 0" }}>
             Track cohort changes when no clean date key exists (e.g., population changes, multiple temporal eligibility factors).
           </p>
         </div>

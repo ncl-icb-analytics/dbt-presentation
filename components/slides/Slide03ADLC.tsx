@@ -30,7 +30,7 @@ export default function Slide03ADLC() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.1 }}
-        style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}
+        style={{ color: "#64748b", fontSize: "1.05rem", marginBottom: "0" }}
       >
         A framework for applying software engineering practices to analytics workflows
       </motion.p>
@@ -53,7 +53,7 @@ export default function Slide03ADLC() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1, duration: 0.4 }}
-            style={{ color: "#8b5cf6", fontSize: "0.75rem", fontWeight: 600, width: "45px" }}
+            style={{ color: "#8b5cf6", fontSize: "0.9rem", fontWeight: 600, width: "55px" }}
           >
             BUILD
           </motion.span>
@@ -82,8 +82,8 @@ export default function Slide03ADLC() {
                   justifyContent: "flex-start",
                 }}
               >
-                <div style={{ color: "#c4b5fd", fontWeight: 600, fontSize: "1rem", marginBottom: "0.4rem" }}>{phase.name}</div>
-                <div style={{ color: "#94a3b8", fontSize: "0.6rem", lineHeight: 1.5 }}>{phase.desc}</div>
+                <div style={{ color: "#c4b5fd", fontWeight: 600, fontSize: "1.2rem", marginBottom: "0.5rem" }}>{phase.name}</div>
+                <div style={{ color: "#94a3b8", fontSize: "0.75rem", lineHeight: 1.5 }}>{phase.desc}</div>
               </motion.div>
               {i < 3 && (
                 <motion.span
@@ -125,7 +125,7 @@ export default function Slide03ADLC() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 1.35, duration: 0.4 }}
-            style={{ color: "#f97316", fontSize: "0.75rem", fontWeight: 600, width: "45px" }}
+            style={{ color: "#f97316", fontSize: "0.9rem", fontWeight: 600, width: "55px" }}
           >
             RUN
           </motion.span>
@@ -154,8 +154,8 @@ export default function Slide03ADLC() {
                   justifyContent: "flex-start",
                 }}
               >
-                <div style={{ color: "#fdba74", fontWeight: 600, fontSize: "1rem", marginBottom: "0.4rem" }}>{phase.name}</div>
-                <div style={{ color: "#94a3b8", fontSize: "0.6rem", lineHeight: 1.5 }}>{phase.desc}</div>
+                <div style={{ color: "#fdba74", fontWeight: 600, fontSize: "1.2rem", marginBottom: "0.5rem" }}>{phase.name}</div>
+                <div style={{ color: "#94a3b8", fontSize: "0.75rem", lineHeight: 1.5 }}>{phase.desc}</div>
               </motion.div>
               {i < 3 && (
                 <motion.span
@@ -184,7 +184,7 @@ export default function Slide03ADLC() {
             rel="noopener noreferrer"
             style={{
               color: "#f97316",
-              fontSize: "0.75rem",
+              fontSize: "0.9rem",
               textDecoration: "none",
             }}
           >

@@ -84,7 +84,7 @@ export default function Slide18Macros() {
   return (
     <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
       <h2 style={{ marginBottom: "0.25rem" }}>Macros</h2>
-      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+      <p style={{ color: "#64748b", fontSize: "1.05rem", marginBottom: "0" }}>
         Reusable Jinja functions. Define once, use everywhere.
       </p>
 
@@ -102,7 +102,7 @@ export default function Slide18Macros() {
               borderRadius: "0.375rem",
               color: activeFile === file ? "#f97316" : "#94a3b8",
               cursor: "pointer",
-              fontSize: "0.8rem",
+              fontSize: "1rem",
               fontFamily: "var(--font-mono), monospace",
             }}
           >
@@ -141,7 +141,7 @@ export default function Slide18Macros() {
           background: "rgba(249, 115, 22, 0.1)",
           borderRadius: "0.375rem",
           borderLeft: "3px solid #f97316",
-          fontSize: "0.85rem",
+          fontSize: "1.05rem",
         }}>
           <code style={{ color: "#f97316" }}>dbt_utils</code>
           <span style={{ color: "#94a3b8" }}> — 50+ common macros</span>
@@ -151,7 +151,7 @@ export default function Slide18Macros() {
           background: "rgba(59, 130, 246, 0.1)",
           borderRadius: "0.375rem",
           borderLeft: "3px solid #3b82f6",
-          fontSize: "0.85rem",
+          fontSize: "1.05rem",
         }}>
           <code style={{ color: "#3b82f6" }}>dbt_expectations</code>
           <span style={{ color: "#94a3b8" }}> — Great Expectations in dbt</span>

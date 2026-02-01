@@ -10,7 +10,7 @@ export default function Slide19GoingFurther() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         style={{
-          fontSize: "3.5rem",
+          fontSize: "4.2rem",
           fontWeight: 700,
           marginBottom: "1.5rem",
         }}
@@ -22,7 +22,7 @@ export default function Slide19GoingFurther() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.5 }}
         style={{
-          fontSize: "1.4rem",
+          fontSize: "1.7rem",
           color: "#94a3b8",
           maxWidth: "600px",
           textAlign: "center",

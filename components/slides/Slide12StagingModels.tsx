@@ -71,7 +71,7 @@ export default function Slide14StagingModels() {
   return (
     <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
       <h2 style={{ marginBottom: "0.25rem" }}>Step 3: Create staging models</h2>
-      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+      <p style={{ color: "#64748b", fontSize: "1.05rem", marginBottom: "0" }}>
         Thin wrappers over sources. Rename, cast, select only what you need.
       </p>
 
@@ -113,6 +113,16 @@ export default function Slide14StagingModels() {
         }}>
           <strong style={{ color: "#f97316" }}>One place to change</strong>
           <span style={{ color: "#94a3b8" }}> — If the source schema changes, fix it here once.</span>
+        </div>
+        <div style={{
+          flex: 1,
+          padding: "0.75rem 1rem",
+          background: "rgba(0,0,0,0.2)",
+          borderRadius: "0.5rem",
+          borderLeft: "3px solid #8b5cf6",
+        }}>
+          <strong style={{ color: "#8b5cf6" }}>Clean & validate</strong>
+          <span style={{ color: "#94a3b8" }}> — Test incoming data here: ensure grain, filter bad records, enforce constraints.</span>
         </div>
       </motion.div>
       </div>

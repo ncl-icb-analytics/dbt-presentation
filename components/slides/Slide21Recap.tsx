@@ -17,7 +17,7 @@ export default function Slide23Recap() {
   return (
     <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
       <h2 style={{ marginBottom: "0.25rem" }}>What we covered</h2>
-      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+      <p style={{ color: "#64748b", fontSize: "1.05rem", marginBottom: "0" }}>
         Start with sources, ref(), and tests. Add the rest as you scale.
       </p>
 
@@ -44,10 +44,10 @@ export default function Slide23Recap() {
             }}
           >
             <div>
-              <span style={{ color: feature.color, fontWeight: 600, fontSize: "0.95rem" }}>
+              <span style={{ color: feature.color, fontWeight: 600, fontSize: "1.15rem" }}>
                 {feature.label}
               </span>
-              <span style={{ color: "#94a3b8", fontSize: "0.85rem", marginLeft: "0.5rem" }}>
+              <span style={{ color: "#94a3b8", fontSize: "1.05rem", marginLeft: "0.6rem" }}>
                 — {feature.desc}
               </span>
             </div>

@@ -149,7 +149,7 @@ export default function Slide19CustomTests() {
   return (
     <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
       <h2 style={{ marginBottom: "0.25rem" }}>Custom tests</h2>
-      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+      <p style={{ color: "#64748b", fontSize: "1.05rem", marginBottom: "0" }}>
         {example === "custom"
           ? "Write domain-specific validation. If it returns rows, the test fails."
           : "Statistical anomaly detection with dbt-elementary."}
@@ -168,7 +168,7 @@ export default function Slide19CustomTests() {
               borderRadius: "0.375rem",
               color: example === "custom" ? "#a855f7" : "#94a3b8",
               cursor: "pointer",
-              fontSize: "0.85rem",
+              fontSize: "1.05rem",
               fontWeight: 500,
             }}
           >
@@ -183,7 +183,7 @@ export default function Slide19CustomTests() {
               borderRadius: "0.375rem",
               color: example === "elementary" ? "#22c55e" : "#94a3b8",
               cursor: "pointer",
-              fontSize: "0.85rem",
+              fontSize: "1.05rem",
               fontWeight: 500,
             }}
           >
@@ -205,7 +205,7 @@ export default function Slide19CustomTests() {
                 borderRadius: "0.375rem",
                 color: activeFile === file ? "#e2e8f0" : "#94a3b8",
                 cursor: "pointer",
-                fontSize: "0.8rem",
+                fontSize: "1rem",
                 fontFamily: "var(--font-mono), monospace",
               }}
             >

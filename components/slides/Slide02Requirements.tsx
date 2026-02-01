@@ -29,7 +29,7 @@ export default function Slide02Requirements() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.1 }}
-        style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}
+        style={{ color: "#64748b", fontSize: "1.05rem", marginBottom: "0" }}
       >
         What characteristics should a mature analytics practice have?
       </motion.p>
@@ -60,13 +60,13 @@ export default function Slide02Requirements() {
                 minHeight: "150px",
               }}
             >
-              <div style={{ color: "#c4b5fd", fontWeight: 600, fontSize: "0.85rem", marginBottom: "0.3rem" }}>
+              <div style={{ color: "#c4b5fd", fontWeight: 600, fontSize: "1.05rem", marginBottom: "0.4rem" }}>
                 {req.name}
               </div>
-              <div style={{ color: "#f97316", fontSize: "0.7rem", marginBottom: "0.4rem", fontStyle: "italic" }}>
+              <div style={{ color: "#f97316", fontSize: "0.85rem", marginBottom: "0.5rem", fontStyle: "italic" }}>
                 {req.q}
               </div>
-              <div style={{ color: "#94a3b8", fontSize: "0.7rem", lineHeight: 1.5 }}>
+              <div style={{ color: "#94a3b8", fontSize: "0.9rem", lineHeight: 1.5 }}>
                 {req.desc}
               </div>
             </motion.div>
@@ -79,7 +79,7 @@ export default function Slide02Requirements() {
           transition={{ delay: 0.8 }}
           style={{ textAlign: "center", maxWidth: "700px", margin: "2.5rem auto 0" }}
         >
-          <div style={{ color: "#94a3b8", fontSize: "0.9rem", lineHeight: 1.6 }}>
+          <div style={{ color: "#94a3b8", fontSize: "1.1rem", lineHeight: 1.6 }}>
             These are ambitious goals. Few organisations achieve all of them—but the pursuit drives real improvement in{" "}
             <span style={{ color: "#c4b5fd" }}>trust</span>,{" "}
             <span style={{ color: "#c4b5fd" }}>velocity</span>, and{" "}

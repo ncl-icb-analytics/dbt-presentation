@@ -19,10 +19,10 @@ export default function Slide01Title() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           style={{
-            fontSize: "3.25rem",
+            fontSize: "4rem",
             fontWeight: 700,
             letterSpacing: "-0.02em",
-            marginBottom: "0.75rem",
+            marginBottom: "1rem",
             color: "#f1f5f9",
           }}
         >
@@ -34,10 +34,10 @@ export default function Slide01Title() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           style={{
-            fontSize: "1.35rem",
+            fontSize: "1.6rem",
             fontWeight: 400,
             color: "#94a3b8",
-            marginBottom: "2.5rem",
+            marginBottom: "3rem",
           }}
         >
           How it works and when it helps
@@ -49,7 +49,7 @@ export default function Slide01Title() {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <p style={{
-            fontSize: "1.15rem",
+            fontSize: "1.35rem",
             fontWeight: 500,
             color: "#e2e8f0",
           }}>

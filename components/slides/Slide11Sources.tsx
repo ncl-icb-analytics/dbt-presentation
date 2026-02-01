@@ -115,7 +115,7 @@ export default function Slide13Sources() {
   return (
     <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
       <h2 style={{ marginBottom: "0.25rem" }}>Step 2: Define your sources</h2>
-      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+      <p style={{ color: "#64748b", fontSize: "1.05rem", marginBottom: "0" }}>
         Document where raw data lives. If the source moves, update one place.
       </p>
 
@@ -140,7 +140,7 @@ export default function Slide13Sources() {
             borderRadius: "0.5rem",
           }}
         >
-          <p style={{ fontSize: "0.95rem", margin: 0 }}>
+          <p style={{ fontSize: "1.15rem", margin: 0 }}>
             <code style={{ color: "#3b82f6" }}>source()</code> references the YAML definition.
             Change the database/schema in one place when environments differ.
           </p>

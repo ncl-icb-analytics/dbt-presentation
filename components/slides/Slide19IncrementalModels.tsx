@@ -47,7 +47,7 @@ export default function Slide21IncrementalModels() {
   return (
     <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
       <h2 style={{ marginBottom: "0.25rem" }}>Incremental models</h2>
-      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+      <p style={{ color: "#64748b", fontSize: "1.05rem", marginBottom: "0" }}>
         Only process new or changed data. First run builds full table, subsequent runs append/merge.
       </p>
 
@@ -79,9 +79,9 @@ export default function Slide21IncrementalModels() {
           borderLeft: "3px solid #22c55e",
         }}
       >
-        <code style={{ color: "#22c55e", fontSize: "0.9rem" }}>is_incremental()</code>
-        <span style={{ color: "#94a3b8", fontSize: "0.9rem" }}> — true when table exists and not running with </span>
-        <code style={{ color: "#22c55e", fontSize: "0.9rem" }}>--full-refresh</code>
+        <code style={{ color: "#22c55e", fontSize: "1.1rem" }}>is_incremental()</code>
+        <span style={{ color: "#94a3b8", fontSize: "1.1rem" }}> — true when table exists and not running with </span>
+        <code style={{ color: "#22c55e", fontSize: "1.1rem" }}>--full-refresh</code>
       </motion.div>
       </div>
     </div>

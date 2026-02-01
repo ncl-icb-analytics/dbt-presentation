@@ -58,7 +58,7 @@ export default function Slide10ProjectSetup() {
   return (
     <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
       <h2 style={{ marginBottom: "0.25rem" }}>Project setup</h2>
-      <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: "0" }}>
+      <p style={{ color: "#64748b", fontSize: "1.05rem", marginBottom: "0" }}>
         Every dbt project needs two config files: one defines the project, the other connects to your warehouse.
       </p>
 
@@ -78,7 +78,7 @@ export default function Slide10ProjectSetup() {
               borderRadius: "0.375rem",
               color: activeFile === "dbt_project.yml" ? "#f97316" : "#94a3b8",
               cursor: "pointer",
-              fontSize: "0.9rem",
+              fontSize: "1.1rem",
             }}
           >
             dbt_project.yml
@@ -92,7 +92,7 @@ export default function Slide10ProjectSetup() {
               borderRadius: "0.375rem",
               color: activeFile === "profiles.yml" ? "#f97316" : "#94a3b8",
               cursor: "pointer",
-              fontSize: "0.9rem",
+              fontSize: "1.1rem",
             }}
           >
             profiles.yml

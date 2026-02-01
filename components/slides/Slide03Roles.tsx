@@ -9,7 +9,7 @@ export default function Slide03Roles() {
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        style={{ fontSize: "1.5rem", marginBottom: "1.5rem", textAlign: "center", fontWeight: 600 }}
+        style={{ fontSize: "1.8rem", marginBottom: "1.8rem", textAlign: "center", fontWeight: 600 }}
       >
         Where{" "}
         <span style={{ color: "#a855f7" }}>data engineers</span>,{" "}
@@ -33,7 +33,7 @@ export default function Slide03Roles() {
             width: "180px",
           }}
         >
-          <div style={{ color: "#a855f7", fontSize: "0.9rem", fontWeight: 600, marginBottom: "1rem" }}>
+          <div style={{ color: "#a855f7", fontSize: "1.1rem", fontWeight: 600, marginBottom: "1.2rem" }}>
             Raw Data Sources
           </div>
           {["EPR Systems", "SUS+ Data", "Reference Data", "CSV Extracts", "HL7 Feeds"].map((source, i) => (
@@ -47,7 +47,7 @@ export default function Slide03Roles() {
                 marginBottom: "0.35rem",
                 background: "rgba(168, 85, 247, 0.15)",
                 borderRadius: "0.3rem",
-                fontSize: "0.75rem",
+                fontSize: "0.9rem",
                 color: "#d8b4fe",
                 fontFamily: "monospace",
               }}
@@ -93,7 +93,7 @@ export default function Slide03Roles() {
           }}>
             <span style={{ color: "#f97316", fontSize: "0.65rem" }}>●</span>
             <span style={{ color: "#22c55e", fontSize: "0.65rem" }}>●</span>
-            <span style={{ color: "#94a3b8", fontSize: "0.75rem", fontWeight: 500 }}>Collaborate in dbt</span>
+            <span style={{ color: "#94a3b8", fontSize: "0.9rem", fontWeight: 500 }}>Collaborate in dbt</span>
           </div>
 
           {/* dbt transformation - bigger */}
@@ -108,7 +108,7 @@ export default function Slide03Roles() {
             <div style={{ fontSize: "3rem", fontWeight: 700, color: "#f97316", marginBottom: "0.25rem", letterSpacing: "-2px" }}>
               dbt
             </div>
-            <div style={{ color: "#94a3b8", fontSize: "0.8rem", marginBottom: "1rem" }}>
+            <div style={{ color: "#94a3b8", fontSize: "1rem", marginBottom: "1.2rem" }}>
               Transformation Layer
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.4rem 1rem", textAlign: "left" }}>
@@ -122,7 +122,7 @@ export default function Slide03Roles() {
               ].map(({ label, color }) => (
                 <div key={label} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
                   <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: color }} />
-                  <span style={{ color: "#cbd5e1", fontSize: "0.7rem" }}>{label}</span>
+                  <span style={{ color: "#cbd5e1", fontSize: "0.85rem" }}>{label}</span>
                 </div>
               ))}
             </div>
@@ -151,7 +151,7 @@ export default function Slide03Roles() {
             width: "160px",
           }}
         >
-          <div style={{ color: "#22c55e", fontSize: "0.9rem", fontWeight: 600, marginBottom: "0.25rem" }}>
+          <div style={{ color: "#22c55e", fontSize: "1.1rem", fontWeight: 600, marginBottom: "0.35rem" }}>
             Analytics Ready
           </div>
           {["Population Health", "Waiting Lists", "RTT Metrics", "Activity Dashboards", "Quality Indicators"].map((output, i) => (
@@ -178,35 +178,28 @@ export default function Slide03Roles() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.9 }}
-        style={{ display: "flex", justifyContent: "center", marginTop: "1.5rem" }}
+        style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: "1.5rem" }}
       >
-        <div style={{ display: "flex", alignItems: "flex-start" }}>
-          <div style={{
-            width: "550px",
-            height: "4px",
-            background: "linear-gradient(90deg, #a855f7 0%, #a855f7 30%, #f97316 50%, #22c55e 100%)",
-            borderRadius: "2px",
-            marginBottom: "0.5rem",
-          }} />
-        </div>
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        style={{ display: "flex", justifyContent: "center", gap: "2rem" }}
-      >
-        <div style={{ textAlign: "center", width: "140px" }}>
-          <span style={{ color: "#a855f7", fontSize: "0.8rem", fontWeight: 600 }}>Data Engineers</span>
-          <div style={{ color: "#64748b", fontSize: "0.65rem", marginTop: "0.25rem" }}>Ingest & infrastructure</div>
-        </div>
-        <div style={{ textAlign: "center", width: "140px" }}>
-          <span style={{ color: "#f97316", fontSize: "0.8rem", fontWeight: 600 }}>Analytics Engineers</span>
-          <div style={{ color: "#64748b", fontSize: "0.65rem", marginTop: "0.25rem" }}>Build models & logic</div>
-        </div>
-        <div style={{ textAlign: "center", width: "140px" }}>
-          <span style={{ color: "#22c55e", fontSize: "0.8rem", fontWeight: 600 }}>Data Analysts</span>
-          <div style={{ color: "#64748b", fontSize: "0.65rem", marginTop: "0.25rem" }}>Define requirements</div>
+        <div style={{
+          width: "600px",
+          height: "4px",
+          background: "linear-gradient(90deg, #a855f7 0%, #a855f7 25%, #f97316 50%, #22c55e 75%, #22c55e 100%)",
+          borderRadius: "2px",
+          marginBottom: "0.75rem",
+        }} />
+        <div style={{ display: "flex", justifyContent: "space-between", width: "600px" }}>
+          <div style={{ textAlign: "center", flex: 1 }}>
+            <span style={{ color: "#a855f7", fontSize: "1rem", fontWeight: 600 }}>Data Engineers</span>
+            <div style={{ color: "#64748b", fontSize: "0.8rem", marginTop: "0.3rem" }}>Ingest & infrastructure</div>
+          </div>
+          <div style={{ textAlign: "center", flex: 1 }}>
+            <span style={{ color: "#f97316", fontSize: "1rem", fontWeight: 600 }}>Analytics Engineers</span>
+            <div style={{ color: "#64748b", fontSize: "0.8rem", marginTop: "0.3rem" }}>Build foundational layer</div>
+          </div>
+          <div style={{ textAlign: "center", flex: 1 }}>
+            <span style={{ color: "#22c55e", fontSize: "1rem", fontWeight: 600 }}>Data Analysts</span>
+            <div style={{ color: "#64748b", fontSize: "0.8rem", marginTop: "0.3rem" }}>Business logic & user-facing analytics</div>
+          </div>
         </div>
       </motion.div>
     </div>
