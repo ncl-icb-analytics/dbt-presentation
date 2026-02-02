@@ -140,6 +140,11 @@ body {
   background: transparent !important;
 }
 
+.code-block-inner pre.shiki,
+.code-block-inner .shiki {
+  font-size: inherit;
+}
+
 /* Code blocks */
 .shiki,
 pre.shiki {

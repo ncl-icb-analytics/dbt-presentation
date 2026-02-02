@@ -81,7 +81,7 @@ export default function Slide22Snapshots() {
         }}>
           <code style={{ color: "#a855f7", fontSize: "1.1rem" }}>strategy='timestamp'</code>
           <p style={{ color: "#94a3b8", fontSize: "1.05rem", margin: "0.3rem 0 0 0" }}>
-            Build truly historical snapshots when source has an <code style={{ color: "#a855f7", fontSize: "1.05rem" }}>updated_at</code> column.
+            Use when source has an <code style={{ color: "#a855f7", fontSize: "1.05rem" }}>updated_at</code> column. dbt compares timestamps to detect changes.
           </p>
         </div>
         <div style={{

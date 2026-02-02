@@ -60,12 +60,13 @@ const files: TreeFile[] = [
 const stagingCode = `{{ config(materialized='view') }}
 
 SELECT
-    id,
+    id AS observation_id,
     person_id,
     concept_code,
-    result_value,
-    clinical_effective_date
-FROM {{ source('olids', 'observation') }}`;
+    result_value::number(10,2) AS result_value,
+    clinical_effective_date::date AS observation_date
+FROM {{ source('olids', 'observation') }}
+WHERE person_id IS NOT NULL`;
 
 export default function Slide14StagingModels() {
   return (
@@ -81,7 +82,7 @@ export default function Slide14StagingModels() {
         activeFile="models/staging/stg_olids_observation.sql"
         code={stagingCode}
         lang="sql"
-        highlightLines={[1, 9]}
+        highlightLines={[4, 7, 8, 10]}
         projectName="dbt-ncl-analytics"
       />
       <motion.div
@@ -101,8 +102,8 @@ export default function Slide14StagingModels() {
           borderRadius: "0.5rem",
           borderLeft: "3px solid #22c55e",
         }}>
-          <strong style={{ color: "#22c55e" }}>Thin wrapper</strong>
-          <span style={{ color: "#94a3b8" }}> — Rename columns, cast types, select only what you need.</span>
+          <strong style={{ color: "#22c55e" }}>1:1 with source</strong>
+          <span style={{ color: "#94a3b8" }}> — One staging model per source table. No joins here.</span>
         </div>
         <div style={{
           flex: 1,
@@ -111,8 +112,8 @@ export default function Slide14StagingModels() {
           borderRadius: "0.5rem",
           borderLeft: "3px solid #f97316",
         }}>
-          <strong style={{ color: "#f97316" }}>One place to change</strong>
-          <span style={{ color: "#94a3b8" }}> — If the source schema changes, fix it here once.</span>
+          <strong style={{ color: "#f97316" }}>Naming convention</strong>
+          <span style={{ color: "#94a3b8" }}> — <code style={{ color: "#f97316" }}>stg_{'{source}'}_{'{table}'}</code> makes lineage clear.</span>
         </div>
         <div style={{
           flex: 1,
@@ -121,8 +122,18 @@ export default function Slide14StagingModels() {
           borderRadius: "0.5rem",
           borderLeft: "3px solid #8b5cf6",
         }}>
-          <strong style={{ color: "#8b5cf6" }}>Clean & validate</strong>
-          <span style={{ color: "#94a3b8" }}> — Test incoming data here: ensure grain, filter bad records, enforce constraints.</span>
+          <strong style={{ color: "#8b5cf6" }}>Select only what you need</strong>
+          <span style={{ color: "#94a3b8" }}> — Rename, cast. Keep it minimal.</span>
+        </div>
+        <div style={{
+          flex: 1,
+          padding: "0.75rem 1rem",
+          background: "rgba(0,0,0,0.2)",
+          borderRadius: "0.5rem",
+          borderLeft: "3px solid #ec4899",
+        }}>
+          <strong style={{ color: "#ec4899" }}>Clean early</strong>
+          <span style={{ color: "#94a3b8" }}> — Filter bad data here so downstream models stay clean.</span>
         </div>
       </motion.div>
       </div>

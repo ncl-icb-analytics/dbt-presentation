@@ -7,41 +7,39 @@ export interface SlideConfig {
 }
 
 export const slides: SlideConfig[] = [
-  // Section 1: The Problem & Insight (1-4)
+  // Section 1: The Problem & Insight (1-3)
   { id: 1, title: "dbt: A Framework for SQL Transformations", layout: "center" },
   { id: 2, title: "Why dbt was created" },
-  { id: 3, title: "The transformation layer" },
-  { id: 4, title: "Software engineering practices → Analytics" },
+  { id: 3, title: "Software engineering practices → Analytics" },
 
-  // Section 2: What is dbt (5-6)
-  { id: 5, title: "Where dbt fits" },
-  { id: 6, title: "What is dbt?" },
+  // Section 2: What is dbt (4)
+  { id: 4, title: "What is dbt?" },
 
-  // Section 3: Demo (7)
-  { id: 7, title: "Let's see it in action", layout: "center" },
+  // Section 3: Demo (5)
+  { id: 5, title: "Let's see it in action", layout: "center" },
 
-  // Section 4: Getting Started - Basics (8-16)
-  { id: 8, title: "Project setup" },
-  { id: 9, title: "Starting point: Raw SQL" },
-  { id: 10, title: "Step 1: Put your SQL in models/", steps: 1 },
-  { id: 11, title: "Step 2: Define your sources", steps: 1 },
-  { id: 12, title: "Step 3: Create staging models" },
-  { id: 13, title: "Step 4: Use ref() for dependencies", steps: 1 },
-  { id: 14, title: "Step 5: Add tests", steps: 1 },
-  { id: 15, title: "Step 6: Document your models" },
-  { id: 16, title: "How dbt runs" },
+  // Section 4: Getting Started - Basics (6-14)
+  { id: 6, title: "Project setup" },
+  { id: 7, title: "Starting point: Raw SQL" },
+  { id: 8, title: "Step 1: Put your SQL in models/", steps: 1 },
+  { id: 9, title: "Step 2: Define your sources", steps: 1 },
+  { id: 10, title: "Step 3: Create staging models" },
+  { id: 11, title: "Step 4: Use ref() for dependencies", steps: 1 },
+  { id: 12, title: "Step 5: Add tests", steps: 1 },
+  { id: 13, title: "Step 6: Document your models" },
+  { id: 14, title: "How dbt runs" },
 
-  // Section 5: Going Further (17-22)
-  { id: 17, title: "Going further", layout: "center" },
-  { id: 18, title: "Macros" },
-  { id: 19, title: "Custom tests" },
-  { id: 20, title: "Semantic models" },
-  { id: 21, title: "Incremental models" },
-  { id: 22, title: "Snapshots" },
+  // Section 5: Going Further (15-20)
+  { id: 15, title: "Going further", layout: "center" },
+  { id: 16, title: "Macros" },
+  { id: 17, title: "Custom tests" },
+  { id: 18, title: "Semantic models" },
+  { id: 19, title: "Incremental models" },
+  { id: 20, title: "Snapshots" },
 
-  // Section 6: Wrap-up (23-24)
-  { id: 23, title: "What we covered" },
-  { id: 24, title: "Questions?", layout: "center" },
+  // Section 6: Wrap-up (21-22)
+  { id: 21, title: "What we covered" },
+  { id: 22, title: "Questions?", layout: "center" },
 ];
 
 export const totalSlides = slides.length;

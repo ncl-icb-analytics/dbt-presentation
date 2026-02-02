@@ -95,8 +95,17 @@ sources:
     schema: OLIDS
     tables:
       - name: observation
-      - name: person
-      - name: medication`;
+        columns:
+          - name: person_id
+            data_type: number(38,0)
+          - name: clinical_effective_date
+            data_type: date
+          - name: concept_code
+            data_type: varchar(50)
+          - name: systolic_value
+            data_type: number(10,2)
+          - name: diastolic_value
+            data_type: number(10,2)`;
 
 const modelCode = `{{ config(materialized='table') }}
 
@@ -141,8 +150,7 @@ export default function Slide13Sources() {
           }}
         >
           <p style={{ fontSize: "1.15rem", margin: 0 }}>
-            <code style={{ color: "#3b82f6" }}>source()</code> references the YAML definition.
-            Change the database/schema in one place when environments differ.
+            <code style={{ color: "#3b82f6" }}>source()</code> tells dbt this table is external — it appears in the DAG, enables freshness checks, and centralises connection details.
           </p>
         </motion.div>
       </ClickReveal>

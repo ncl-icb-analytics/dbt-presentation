@@ -8,6 +8,7 @@ const features = [
   { label: "ref() & source()", desc: "Declare dependencies, build order automatic", color: "#22c55e" },
   { label: "Tests", desc: "Quality gates before dashboards", color: "#eab308" },
   { label: "Documentation", desc: "Generated from the code itself", color: "#06b6d4" },
+  { label: "Macros", desc: "Reusable Jinja functions", color: "#14b8a6" },
   { label: "Semantic models", desc: "Snowflake semantic views for Cortex AI", color: "#8b5cf6" },
   { label: "Incremental models", desc: "Only process new/changed data", color: "#ec4899" },
   { label: "Snapshots", desc: "Type 2 SCD built-in", color: "#a855f7" },
@@ -24,8 +25,8 @@ export default function Slide23Recap() {
       <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
       <div style={{
         display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: "0.75rem",
+        gridTemplateColumns: "1fr 1fr 1fr",
+        gap: "1rem",
       }}>
         {features.map((feature, i) => (
           <motion.div
@@ -35,22 +36,20 @@ export default function Slide23Recap() {
             transition={{ delay: 0.1 + i * 0.05 }}
             style={{
               display: "flex",
-              alignItems: "center",
-              gap: "0.75rem",
-              padding: "0.6rem 1rem",
+              flexDirection: "column",
+              gap: "0.5rem",
+              padding: "1.25rem 1.5rem",
               background: "rgba(0,0,0,0.2)",
               borderRadius: "0.5rem",
-              borderLeft: `3px solid ${feature.color}`,
+              borderLeft: `4px solid ${feature.color}`,
             }}
           >
-            <div>
-              <span style={{ color: feature.color, fontWeight: 600, fontSize: "1.15rem" }}>
-                {feature.label}
-              </span>
-              <span style={{ color: "#94a3b8", fontSize: "1.05rem", marginLeft: "0.6rem" }}>
-                — {feature.desc}
-              </span>
-            </div>
+            <span style={{ color: feature.color, fontWeight: 600, fontSize: "1.4rem" }}>
+              {feature.label}
+            </span>
+            <span style={{ color: "#94a3b8", fontSize: "1.15rem" }}>
+              {feature.desc}
+            </span>
           </motion.div>
         ))}
       </div>

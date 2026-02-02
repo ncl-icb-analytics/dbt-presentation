@@ -35,16 +35,16 @@ const files: TreeFile[] = [
         ],
       },
       {
-        name: "_models.yml",
-        path: "models/_models.yml",
-        type: "file",
-        lang: "yaml",
-      },
-      {
         name: "int_blood_pressure_latest.sql",
         path: "models/int_blood_pressure_latest.sql",
         type: "file",
         lang: "sql",
+      },
+      {
+        name: "int_blood_pressure_latest.yml",
+        path: "models/int_blood_pressure_latest.yml",
+        type: "file",
+        lang: "yaml",
       },
     ],
   },
@@ -77,7 +77,7 @@ export default function Slide17DocumentModels() {
       <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "flex-start", paddingTop: "1.5rem" }}>
       <CodeSlideLayout
         files={files}
-        activeFile="models/_models.yml"
+        activeFile="models/int_blood_pressure_latest.yml"
         code={yamlCode}
         lang="yaml"
         highlightLines={[5, 6, 7, 10]}

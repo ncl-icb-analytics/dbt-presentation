@@ -1,8 +1,43 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { createHighlighter, type HighlighterCore } from "shiki";
+
+const inputCode = `{{ config(materialized='table') }}
+
+SELECT
+    patient_id,
+    reading_date,
+    systolic,
+    diastolic
+FROM {{ ref('stg_observations') }}
+WHERE observation_type = 'blood_pressure'`;
+
+const outputCode = `CREATE OR REPLACE TABLE
+  analytics.fct_bp_readings AS
+SELECT
+    patient_id,
+    reading_date,
+    systolic,
+    diastolic
+FROM analytics.stg_observations
+WHERE observation_type = 'blood_pressure'`;
 
 export default function Slide04WhatIsDbt() {
+  const [inputHtml, setInputHtml] = useState<string>("");
+  const [outputHtml, setOutputHtml] = useState<string>("");
+
+  useEffect(() => {
+    createHighlighter({
+      themes: ["github-dark"],
+      langs: ["sql"],
+    }).then((h) => {
+      setInputHtml(h.codeToHtml(inputCode, { lang: "sql", theme: "github-dark" }));
+      setOutputHtml(h.codeToHtml(outputCode, { lang: "sql", theme: "github-dark" }));
+    });
+  }, []);
+
   return (
     <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
       <motion.h2
@@ -18,7 +53,7 @@ export default function Slide04WhatIsDbt() {
         transition={{ delay: 0.1 }}
         style={{ color: "#64748b", fontSize: "1.05rem", marginBottom: "0" }}
       >
-        A compiler for SQL transformations. You write SELECT, dbt handles the rest.
+        A compiler for SQL transformations. You write SELECT statements with dependencies — dbt resolves references, determines build order, and generates the DDL.
       </motion.p>
 
       <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", gap: "1.5rem" }}>
@@ -31,47 +66,17 @@ export default function Slide04WhatIsDbt() {
             display: "grid",
             gridTemplateColumns: "1fr auto 1fr",
             gap: "1.5rem",
-            alignItems: "center",
+            alignItems: "stretch",
           }}
         >
           {/* Input */}
-          <div>
-            <div style={{ 
-              color: "#3b82f6", 
-              fontSize: "0.9rem", 
-              fontWeight: 600, 
-              marginBottom: "0.5rem",
-              letterSpacing: "0.05em",
-            }}>
-              YOU WRITE
-            </div>
-            <div style={{
-              background: "rgba(0,0,0,0.3)",
-              borderRadius: "0.5rem",
-              border: "1px solid rgba(59, 130, 246, 0.3)",
-              padding: "1rem",
-              fontFamily: "var(--font-mono), monospace",
-              fontSize: "1rem",
-              lineHeight: 1.6,
-            }}>
-              <div style={{ color: "#6b7280" }}>-- models/fct_bp_readings.sql</div>
-              <br />
-              <span style={{ color: "#c084fc" }}>SELECT</span>
-              <br />
-              {"    "}patient_id,
-              <br />
-              {"    "}reading_date,
-              <br />
-              {"    "}systolic,
-              <br />
-              {"    "}diastolic
-              <br />
-              <span style={{ color: "#c084fc" }}>FROM</span>{" "}
-              <span style={{ color: "#f97316" }}>{"{{ ref('stg_observations') }}"}</span>
-              <br />
-              <span style={{ color: "#c084fc" }}>WHERE</span> observation_type ={" "}
-              <span style={{ color: "#a5d6ff" }}>'blood_pressure'</span>
-            </div>
+          <div className="code-slide-viewer" style={{ gridColumn: "auto" }}>
+            <div className="code-filename">models/fct_bp_readings.sql</div>
+            <div
+              className="code-block-inner"
+              style={{ fontSize: "1.2rem" }}
+              dangerouslySetInnerHTML={{ __html: inputHtml }}
+            />
           </div>
 
           {/* Arrow + dbt */}
@@ -83,6 +88,7 @@ export default function Slide04WhatIsDbt() {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
+              justifyContent: "center",
               gap: "0.5rem",
             }}
           >
@@ -99,52 +105,17 @@ export default function Slide04WhatIsDbt() {
           </motion.div>
 
           {/* Output */}
-          <div>
-            <div style={{ 
-              color: "#22c55e", 
-              fontSize: "0.9rem", 
-              fontWeight: 600, 
-              marginBottom: "0.5rem",
-              letterSpacing: "0.05em",
-            }}>
-              DBT RUNS
-            </div>
-            <div style={{
-              background: "rgba(0,0,0,0.3)",
-              borderRadius: "0.5rem",
-              border: "1px solid rgba(34, 197, 94, 0.3)",
-              padding: "1rem",
-              fontFamily: "var(--font-mono), monospace",
-              fontSize: "1rem",
-              lineHeight: 1.6,
-            }}>
-              <div style={{ color: "#6b7280" }}>-- What dbt compiles and runs:</div>
-              <br />
-              <span style={{ color: "#c084fc" }}>CREATE OR REPLACE TABLE</span>
-              <br />
-              {"  "}<span style={{ color: "#22c55e" }}>analytics.fct_bp_readings</span>{" "}
-              <span style={{ color: "#c084fc" }}>AS</span>
-              <br />
-              <span style={{ color: "#c084fc" }}>SELECT</span>
-              <br />
-              {"    "}patient_id,
-              <br />
-              {"    "}reading_date,
-              <br />
-              {"    "}systolic,
-              <br />
-              {"    "}diastolic
-              <br />
-              <span style={{ color: "#c084fc" }}>FROM</span>{" "}
-              <span style={{ color: "#22c55e" }}>analytics.stg_observations</span>
-              <br />
-              <span style={{ color: "#c084fc" }}>WHERE</span> observation_type ={" "}
-              <span style={{ color: "#a5d6ff" }}>'blood_pressure'</span>
-            </div>
+          <div className="code-slide-viewer" style={{ gridColumn: "auto" }}>
+            <div className="code-filename">Compiled & executed</div>
+            <div
+              className="code-block-inner"
+              style={{ fontSize: "1.2rem" }}
+              dangerouslySetInnerHTML={{ __html: outputHtml }}
+            />
           </div>
         </motion.div>
 
-        {/* Key capabilities - concrete */}
+        {/* Key capabilities */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -156,28 +127,28 @@ export default function Slide04WhatIsDbt() {
           }}
         >
           {[
-            { 
-              icon: "📁", 
-              title: "Models = SQL files", 
+            {
+              icon: "📁",
+              title: "Models = SQL files",
               desc: "One .sql file → one table or view",
               color: "#f97316",
             },
-            { 
-              icon: "🔗", 
-              title: "ref() = dependencies", 
+            {
+              icon: "🔗",
+              title: "ref() = dependencies",
               desc: "dbt builds in the right order",
               color: "#8b5cf6",
             },
-            { 
-              icon: "✅", 
-              title: "Tests run on build", 
-              desc: "Catch bad data before dashboards",
+            {
+              icon: "⚙️",
+              title: "Materializations",
+              desc: "Config controls: table, view, incremental",
               color: "#22c55e",
             },
-            { 
-              icon: "📖", 
-              title: "Docs alongside code", 
-              desc: "YAML descriptions, in the repo",
+            {
+              icon: "🎯",
+              title: "Environments",
+              desc: "Same code deploys to dev, test, or prod",
               color: "#3b82f6",
             },
           ].map((item, i) => (

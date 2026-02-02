@@ -11,6 +11,12 @@ const files: TreeFile[] = [
     path: "macros",
     children: [
       {
+        name: "ncl.sql",
+        type: "file",
+        path: "macros/ncl.sql",
+        lang: "sql",
+      },
+      {
         name: "dates.sql",
         type: "file",
         path: "macros/dates.sql",
@@ -40,6 +46,12 @@ const files: TreeFile[] = [
 ];
 
 const codeFiles: Record<string, { code: string; lang: string }> = {
+  "macros/ncl.sql": {
+    lang: "sql",
+    code: `{% macro icb_code() %}
+  'QMJ'
+{% endmacro %}`,
+  },
   "macros/dates.sql": {
     lang: "sql",
     code: `{% macro fy_start() %}
@@ -72,20 +84,21 @@ const codeFiles: Record<string, { code: string; lang: string }> = {
     {{ bmi('weight_kg', 'height_m') }} as bmi,
     {{ fructosamine_to_hba1c('fructosamine_value') }} as hba1c_est
 FROM {{ ref('stg_observations') }}
-WHERE observation_date >= {{ fy_start() }}
+WHERE icb = {{ icb_code() }}
+  AND observation_date >= {{ fy_start() }}
   AND observation_date <= {{ fy_end() }}`,
   },
 };
 
 export default function Slide18Macros() {
-  const [activeFile, setActiveFile] = useState("macros/dates.sql");
+  const [activeFile, setActiveFile] = useState("macros/ncl.sql");
   const currentFile = codeFiles[activeFile];
 
   return (
     <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
       <h2 style={{ marginBottom: "0.25rem" }}>Macros</h2>
       <p style={{ color: "#64748b", fontSize: "1.05rem", marginBottom: "0" }}>
-        Reusable Jinja functions. Define once, use everywhere.
+        Jinja templates that generate SQL at compile time. Write a function once, call it in any model — dbt injects the SQL before execution.
       </p>
 
       <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "flex-start", paddingTop: "1.5rem" }}>

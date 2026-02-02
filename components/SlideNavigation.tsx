@@ -149,7 +149,7 @@ export default function SlideNavigation({
         {slideId} / {totalSlides}
       </div>
 
-      {/* Clickable next button */}
+      {/* Clickable next button - positioned above nav hint */}
       {isLastStep && hasNextSlide && (
         <motion.button
           initial={{ opacity: 0 }}
@@ -158,9 +158,8 @@ export default function SlideNavigation({
           className="next-slide-hint"
           style={{
             position: "fixed",
-            right: "2rem",
-            top: "50%",
-            transform: "translateY(-50%)",
+            right: "1.5rem",
+            bottom: "3.5rem",
             display: "flex",
             alignItems: "center",
             gap: "0.5rem",
@@ -169,7 +168,7 @@ export default function SlideNavigation({
             background: "none",
             border: "none",
             cursor: "pointer",
-            padding: "1rem",
+            padding: "0.5rem",
           }}
         >
           <motion.span
