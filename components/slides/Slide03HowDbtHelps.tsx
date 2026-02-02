@@ -55,9 +55,9 @@ export default function Slide03HowDbtHelps() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.1 }}
-        style={{ color: "#64748b", fontSize: "1.05rem", marginBottom: "0" }}
+        style={{ color: "#94a3b8", fontSize: "1.3rem", marginBottom: "0", fontStyle: "italic" }}
       >
-        dbt makes these practices natural for SQL workflows.
+        "dbt brings software engineering best practices to the analytics workflow."
       </motion.p>
 
       <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>

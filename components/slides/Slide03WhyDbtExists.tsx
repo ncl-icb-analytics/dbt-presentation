@@ -48,11 +48,11 @@ export default function Slide03WhyDbtExists() {
           style={{
             flex: 1,
             maxWidth: "650px",
-            height: "500px",
+            height: "560px",
           }}
         >
           <div style={{
-            padding: "3rem",
+            padding: "2.5rem 3rem",
             background: "rgba(30, 30, 46, 0.5)",
             border: "2px solid rgba(239, 68, 68, 0.3)",
             borderRadius: "1rem",
@@ -64,15 +64,14 @@ export default function Slide03WhyDbtExists() {
               color: "#ef4444",
               fontSize: "1.8rem",
               fontWeight: 600,
-              margin: "0 0 2.5rem 0",
+              margin: "0 0 2rem 0",
             }}>
               The Problem
             </h3>
 
             <div style={{
               display: "grid",
-              gap: "1rem",
-              flex: 1,
+              gap: "1.1rem",
             }}>
               {problems.map((problem, i) => (
                 <motion.div
@@ -103,15 +102,14 @@ export default function Slide03WhyDbtExists() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
               style={{
-                marginTop: "2rem",
-                paddingTop: "2rem",
-                borderTop: "1px solid rgba(100, 116, 139, 0.2)",
-                color: "#64748b",
-                fontSize: "1.25rem",
-                fontStyle: "italic",
+                marginTop: "auto",
+                color: "#ef4444",
+                fontSize: "1.2rem",
+                fontWeight: 500,
+                opacity: 0.8,
               }}
             >
-              = Slower decisions, worse outcomes
+              → Lower velocity, less trust in data, decisions delayed
             </motion.div>
           </div>
         </motion.div>
@@ -124,11 +122,11 @@ export default function Slide03WhyDbtExists() {
           style={{
             flex: 1,
             maxWidth: "650px",
-            height: "500px",
+            height: "560px",
           }}
         >
           <div style={{
-            padding: "3rem",
+            padding: "2.5rem 3rem",
             background: "rgba(30, 30, 46, 0.5)",
             border: "2px solid rgba(34, 197, 94, 0.3)",
             borderRadius: "1rem",
@@ -140,7 +138,7 @@ export default function Slide03WhyDbtExists() {
               color: "#22c55e",
               fontSize: "1.8rem",
               fontWeight: 600,
-              margin: "0 0 2.5rem 0",
+              margin: "0 0 2rem 0",
             }}>
               💡 The Insight
             </h3>
@@ -158,12 +156,21 @@ export default function Slide03WhyDbtExists() {
             <p style={{
               color: "#94a3b8",
               fontSize: "1.35rem",
-              margin: 0,
+              margin: "0 0 1.5rem 0",
               lineHeight: 1.6,
-              flex: 1,
             }}>
-              Version control, testing, documentation, modularity, collaboration — these weren't
+              Source control, testing, documentation, modularity, collaboration — these weren't
               unique to analytics. They were software engineering fundamentals.
+            </p>
+
+            <p style={{
+              color: "#22c55e",
+              fontSize: "1.5rem",
+              fontWeight: 600,
+              margin: 0,
+              fontStyle: "italic",
+            }}>
+              "Analytics is software."
             </p>
 
             <motion.div
@@ -171,12 +178,11 @@ export default function Slide03WhyDbtExists() {
               animate={{ opacity: 1 }}
               transition={{ delay: 1.0 }}
               style={{
-                marginTop: "2rem",
-                paddingTop: "2rem",
-                borderTop: "1px solid rgba(34, 197, 94, 0.2)",
+                marginTop: "auto",
                 color: "#22c55e",
-                fontSize: "1.3rem",
-                fontWeight: 600,
+                fontSize: "1.2rem",
+                fontWeight: 500,
+                opacity: 0.8,
               }}
             >
               → Apply the same practices to analytics
