@@ -8,7 +8,7 @@ export interface SlideConfig {
 
 export const slides: SlideConfig[] = [
   // Section 1: The Problem & Insight (1-3)
-  { id: 1, title: "dbt: A Framework for SQL Transformations", layout: "center" },
+  { id: 1, title: "Introduction to dbt", layout: "center" },
   { id: 2, title: "Why dbt was created" },
   { id: 3, title: "Software engineering practices → Analytics" },
 

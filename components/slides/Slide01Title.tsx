@@ -26,7 +26,7 @@ export default function Slide01Title() {
             color: "#f1f5f9",
           }}
         >
-          dbt: A Framework for SQL Transformations
+          Introduction to dbt
         </motion.h1>
 
         <motion.p
@@ -40,7 +40,7 @@ export default function Slide01Title() {
             marginBottom: "3rem",
           }}
         >
-          How it works and when it helps
+          Bringing software engineering practices to analytics
         </motion.p>
 
         <motion.div
