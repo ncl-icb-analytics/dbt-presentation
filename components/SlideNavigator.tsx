@@ -4,7 +4,10 @@ import { useState, useEffect, useMemo, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { slides } from "@/lib/slides";
-// Using native img instead of next/image to avoid thumbnail caching issues
+import Image from "next/image";
+
+// Cache bust thumbnails on each build
+const CACHE_BUST = process.env.NEXT_PUBLIC_BUILD_TIME || Date.now().toString();
 
 export default function SlideNavigator() {
   const [isOpen, setIsOpen] = useState(false);
@@ -218,21 +221,17 @@ export default function SlideNavigator() {
                       background: "rgba(0, 0, 0, 0.3)",
                     }}
                   >
-                    <img
-                      src={`/thumbnails/slide-${slide.id}.png`}
+                    <Image
+                      src={`/thumbnails/slide-${slide.id}.png?v=${CACHE_BUST}`}
                       alt={slide.title}
+                      fill
                       style={{
-                        position: "absolute",
-                        inset: 0,
-                        width: "100%",
-                        height: "100%",
                         objectFit: "cover",
                         transform: "scale(1.5)",
                         transformOrigin: "center 35%",
                       }}
-                      onError={(e) => {
-                        e.currentTarget.style.display = "none";
-                      }}
+                      sizes="120px"
+                      unoptimized
                     />
                   </div>
 
