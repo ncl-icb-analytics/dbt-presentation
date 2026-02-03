@@ -55,9 +55,9 @@ export default function Slide03HowDbtHelps() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.1 }}
-        style={{ color: "#94a3b8", fontSize: "1.3rem", marginBottom: "0", fontStyle: "italic" }}
+        style={{ color: "#94a3b8", fontSize: "1.3rem", marginBottom: "0" }}
       >
-        "dbt brings software engineering best practices to the analytics workflow."
+        dbt enables us to build a workflow around these practices
       </motion.p>
 
       <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
@@ -68,8 +68,8 @@ export default function Slide03HowDbtHelps() {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "1rem",
-            maxWidth: "1100px",
+            gap: "1.5rem",
+            maxWidth: "1300px",
             margin: "0 auto",
           }}
         >
@@ -82,7 +82,7 @@ export default function Slide03HowDbtHelps() {
               style={{
                 background: "rgba(0,0,0,0.2)",
                 borderRadius: "0.6rem",
-                padding: "1.25rem",
+                padding: "1.5rem",
                 borderLeft: "3px solid #f97316",
               }}
             >
@@ -90,7 +90,7 @@ export default function Slide03HowDbtHelps() {
                 display: "flex", 
                 alignItems: "center", 
                 gap: "0.5rem", 
-                marginBottom: "0.75rem" 
+                marginBottom: "1rem" 
               }}>
                 <span style={{ fontSize: "1.5rem" }}>{item.icon}</span>
                 <span style={{ color: "#f97316", fontWeight: 600, fontSize: "1.15rem" }}>
@@ -101,8 +101,8 @@ export default function Slide03HowDbtHelps() {
               <div style={{ 
                 display: "flex", 
                 flexDirection: "column", 
-                gap: "0.5rem",
-                fontSize: "1rem",
+                gap: "0.75rem",
+                fontSize: "1.05rem",
               }}>
                 <div style={{ 
                   display: "flex", 
