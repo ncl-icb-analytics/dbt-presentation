@@ -90,6 +90,14 @@ export default function SlideNavigation({
     setCurrentStep(0);
   }, [slideId]);
 
+  // Prefetch adjacent slides for faster navigation
+  useEffect(() => {
+    const nextId = getNextSlideId(slideId);
+    const prevId = getPrevSlideId(slideId);
+    if (nextId) router.prefetch(`/slides/${nextId}`);
+    if (prevId) router.prefetch(`/slides/${prevId}`);
+  }, [slideId, router]);
+
   // Touch swipe support for mobile
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
@@ -139,7 +147,7 @@ export default function SlideNavigation({
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
+          transition={{ duration: 0.15, ease: "easeOut" }}
         >
           {children}
         </motion.div>
