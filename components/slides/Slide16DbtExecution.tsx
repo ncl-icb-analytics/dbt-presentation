@@ -91,20 +91,20 @@ export default function Slide18DbtExecution() {
         </motion.div>
       </div>
 
-      <div style={{ flex: 1, minHeight: 0 }}>
+      <div style={{ flex: 1, minHeight: 0, display: "flex", flexDirection: "column", justifyContent: "center" }}>
         <DbtDAGExecution ref={dagRef} command={command} />
-      </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3 }}
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          gap: "1.25rem",
-        }}
-      >
+        
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            gap: "1.25rem",
+            marginTop: "1rem",
+          }}
+        >
         <div style={{
           padding: "0.4rem 0.6rem",
           background: "rgba(34, 197, 94, 0.1)",
@@ -135,7 +135,8 @@ export default function Slide18DbtExecution() {
           <span style={{ color: "#94a3b8", fontWeight: 500 }}>Smart skip</span>
           <span style={{ color: "#64748b" }}> — Only downstream dependents are skipped</span>
         </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 }
