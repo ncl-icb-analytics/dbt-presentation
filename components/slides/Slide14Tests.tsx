@@ -71,7 +71,7 @@ export default function Slide16Tests() {
   const isStep1 = currentStep >= 1;
 
   return (
-    <div className="slide" style={{ padding: "2rem 3rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
+    <div className="slide" style={{ padding: "3rem 3rem 2rem", height: "100vh", minHeight: "auto", overflow: "hidden" }}>
       <h2 style={{ marginBottom: "0.25rem" }}>Step 5: Add tests</h2>
       <p style={{ color: "#64748b", fontSize: "1.05rem", marginBottom: "0" }}>
         Validate data quality on every build. Catch issues before they reach dashboards.
